@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getOcidUrl } from '../util/openApiManager';
 import CharacterTable from './CharacterTable';
 import InputBar from './InputBar';
@@ -40,7 +40,7 @@ export default function CharacterInfo() {
   return (
     <div>
       <InputBar handleSubmit={handleSubmit}></InputBar>
-      <CharacterTable ocid={ocid} />
+      {ocid && <CharacterTable ocid={ocid} />}
     </div>
   );
 }

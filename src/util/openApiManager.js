@@ -18,6 +18,32 @@ const getStarForceUrl = (count, date, cursor) => {
   return starForceUrl;
 };
 
+const getCharacterStatUrl = (ocid, date) => {
+  const characterStatBaseUrl = '/maplestory/v1/character/stat';
+  if (!ocid || !date) {
+    console.log('ocid and date is required');
+    return undefined;
+  }
+  let characterStatUrl = openApiBaseUrl + characterStatBaseUrl + '?';
+  characterStatUrl += `&ocid=${ocid}`;
+  characterStatUrl += `&date=${date}`;
+  return characterStatUrl;
+};
+
+const getOcidUrl = (nickname) => {
+  const ocidBaseUrl = '/maplestory/v1/id';
+  if (!nickname) {
+    console.log('nickname is required');
+    return undefined;
+  }
+  let ocidUrl = openApiBaseUrl + ocidBaseUrl + '?';
+  ocidUrl += `&character_name=${nickname}`;
+  console.log(ocidUrl);
+  return ocidUrl;
+};
+
 module.exports = {
   getStarForceUrl,
+  getCharacterStatUrl,
+  getOcidUrl,
 };
