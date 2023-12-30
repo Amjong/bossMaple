@@ -1,8 +1,19 @@
 import './App.css';
-import InputBar from './components/InputBar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import Error from './components/Error';
+import Loading from './components/Loading';
+import CharacterInfo from './components/CharacterInfo';
+import StarforceInfo from './components/StarforceInfo';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: true,
+    },
+  },
+});
 
 function App() {
   return (
@@ -13,7 +24,16 @@ function App() {
         </header>
         <section className='bg-black h-screen flex flex-col'>
           <div className='text-center m-auto'>
-            <InputBar></InputBar>
+            <ErrorBoundary fallback={<Error></Error>}>
+              <Suspense fallback={<Loading></Loading>}>
+                <CharacterInfo></CharacterInfo>
+              </Suspense>
+            </ErrorBoundary>
+            <ErrorBoundary fallback={<Error></Error>}>
+              <Suspense fallback={<Loading></Loading>}>
+                <StarforceInfo></StarforceInfo>
+              </Suspense>
+            </ErrorBoundary>
           </div>
         </section>
       </div>

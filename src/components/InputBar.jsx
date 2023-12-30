@@ -1,14 +1,10 @@
 import { useState } from 'react';
 
-export default function InputBar(input) {
+export default function InputBar({ handleSubmit }) {
   const [text, setText] = useState('');
   const handleChange = (e) => {
     e.preventDefault();
     setText(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO : Fetching character info by nexon open API
   };
   return (
     <form onSubmit={handleSubmit}>
