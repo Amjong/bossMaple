@@ -1,3 +1,6 @@
-export default function CharacterTable() {
-  return <div className='text-white text-3xl'>캐릭터정보</div>;
+export default function CharacterTable({ nickname }) {
+  if (nickname === null || nickname === undefined || nickname.length <= 1) {
+    return <div></div>;
+  }
+  return <div className='text-white text-3xl'>{JSON.stringify(nickname)}</div>;
 }

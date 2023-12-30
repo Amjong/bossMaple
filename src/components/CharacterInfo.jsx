@@ -3,16 +3,17 @@ import CharacterTable from './CharacterTable';
 import InputBar from './InputBar';
 
 export default function CharacterInfo() {
-  const [needUpdate, setNeedUpdate] = useState(false);
+  const [nickname, setNickname] = useState('');
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
-    console.log('fwefwf');
-    setNeedUpdate(true);
+    const inputValue = e.target[0].value;
+    //TODO : validate inputValue
+    setNickname(inputValue);
   }, []);
   return (
     <div>
       <InputBar handleSubmit={handleSubmit}></InputBar>
-      {needUpdate && <CharacterTable />}
+      <CharacterTable nickname={nickname} />
     </div>
   );
 }
