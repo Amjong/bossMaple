@@ -1,6 +1,7 @@
-export default function CharacterTable({ nickname }) {
-  if (nickname === null || nickname === undefined || nickname.length <= 1) {
+export default function CharacterTable({ ocid }) {
+  if (ocid === null || ocid === undefined || ocid.length <= 1) {
     return <div></div>;
   }
-  return <div className='text-white text-3xl'>{JSON.stringify(nickname)}</div>;
+
+  return <div className='text-white text-3xl'>{JSON.stringify(ocid)}</div>;
 }
