@@ -36,6 +36,9 @@ function App() {
             </ErrorBoundary>
           </div>
         </section>
+        <footer className='text-white text-center'>
+          Data based on NEXON Open API.
+        </footer>
       </div>
     </QueryClientProvider>
   );
