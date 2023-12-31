@@ -19,7 +19,7 @@ let fetchData = async (ocid, date) => {
 
 export default function useCharacterStatQuery(ocid, date) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['CharacterStatInfo'],
+    queryKey: [ocid],
     queryFn: () => fetchData(ocid, date),
     suspense: true,
   });

@@ -34,6 +34,7 @@ export default function CharacterInfo() {
     }
     fetchData(nickname).then((response) => {
       setOcid(response.ocid);
+      console.log(`ocid : ${response.ocid}`);
     });
   }, [nickname]);
 
