@@ -1,6 +1,5 @@
 import useCharacterStatQuery from '../service/hooks/useCharacterStatQuery';
 import { getCurrentDateString } from '../util/dateUtility';
-import { getCombatPower } from '../util/statApi';
 
 export default function CharacterTable({ ocid }) {
   const { data } = useCharacterStatQuery(ocid, getCurrentDateString(-2));
@@ -9,7 +8,5 @@ export default function CharacterTable({ ocid }) {
     return <div></div>;
   }
 
-  return (
-    <div className='text-white text-3xl'>전투력 : {getCombatPower(data)}</div>
-  );
+  return <div></div>;
 }

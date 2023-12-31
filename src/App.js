@@ -6,6 +6,7 @@ import Error from './components/Error';
 import Loading from './components/Loading';
 import CharacterInfo from './components/CharacterInfo';
 import StarforceInfo from './components/StarforceInfo';
+import CharacterInputTable from './components/CharacterInputTable';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,9 +23,12 @@ function App() {
         <header className='bg-gray-200 text-red-200 text-3xl font-bold text-center'>
           BossMaple
         </header>
-        <section className='bg-black h-screen flex flex-col'>
-          <div className='text-center m-auto'>
-            <ErrorBoundary fallback={<Error></Error>}>
+        <section className='bg-gray-200 h-screen flex flex-col'>
+          <p className='h-1/5 font-bold text-3xl text-center flex items-center justify-center'>
+            캐릭터 추가
+          </p>
+          <div className='text-center m-auto w-1/2 h-4/5 border-solid border-black border-2'>
+            {/* <ErrorBoundary fallback={<Error></Error>}>
               <Suspense fallback={<Loading></Loading>}>
                 <CharacterInfo></CharacterInfo>
               </Suspense>
@@ -33,10 +37,15 @@ function App() {
               <Suspense fallback={<Loading></Loading>}>
                 <StarforceInfo></StarforceInfo>
               </Suspense>
+            </ErrorBoundary> */}
+            <ErrorBoundary fallback={<Error></Error>}>
+              <Suspense fallback={<Loading></Loading>}>
+                <CharacterInputTable />
+              </Suspense>
             </ErrorBoundary>
           </div>
         </section>
-        <footer className='text-white text-center'>
+        <footer className='text-black text-3xl text-center'>
           Data based on NEXON Open API.
         </footer>
       </div>
