@@ -1,4 +1,4 @@
-import useCharacterStatQuery from '../service/hooks/useChacterStatQuery';
+import useCharacterStatQuery from '../service/hooks/useCharacterStatQuery';
 import { getCurrentDateString } from '../util/dateUtility';
 import { getCombatPower } from '../util/statApi';
 
