@@ -1,23 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getOcidUrl } from '../util/openApiManager';
+import { getOcidFromNickname } from '../util/openApiManager';
 import CharacterTable from './CharacterTable';
 import InputBar from './InputBar';
-
-let fetchData = async (nickname) => {
-  const response = await fetch(getOcidUrl(nickname), {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-nxopen-api-key': process.env.REACT_APP_MAPLE_API_KEY,
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Network response was not ok: ${response.statusText}`);
-  }
-
-  return response.json();
-};
 
 export default function CharacterInfo() {
   const [nickname, setNickname] = useState('');
@@ -32,7 +16,7 @@ export default function CharacterInfo() {
     if (!nickname || nickname.length <= 1) {
       return;
     }
-    fetchData(nickname).then((response) => {
+    getOcidFromNickname(nickname).then((response) => {
       setOcid(response.ocid);
       console.log(`ocid : ${response.ocid}`);
     });

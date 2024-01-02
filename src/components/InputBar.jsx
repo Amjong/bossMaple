@@ -13,6 +13,7 @@ export default function InputBar({ handleSubmit }) {
         value={text}
         onChange={handleChange}
         type='text'
+        className='w-64 text-center'
       ></input>
     </form>
   );

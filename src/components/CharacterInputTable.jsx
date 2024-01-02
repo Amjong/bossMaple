@@ -13,7 +13,7 @@ export default function CharacterInputTable() {
   };
 
   return (
-    <div className='w-full'>
+    <div className='flex flex-col w-full h-full'>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -25,7 +25,13 @@ export default function CharacterInputTable() {
         <Tab icon={<BoyIcon />} label='1인' sx={{ width: '50%' }} />
         <Tab icon={<GroupsIcon />} label='파티' sx={{ width: '50%' }} />
       </Tabs>
-      {value === 0 ? <CharacterInputTableSolo /> : <CharacterInputTableParty />}
+      <div className='flex w-full h-full items-center justify-center border-solid border-5 border-black'>
+        {value === 0 ? (
+          <CharacterInputTableSolo />
+        ) : (
+          <CharacterInputTableParty />
+        )}
+      </div>
     </div>
   );
 }
