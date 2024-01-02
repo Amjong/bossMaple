@@ -42,8 +42,25 @@ const getOcidUrl = (nickname) => {
   return ocidUrl;
 };
 
+const getOcidFromNickname = async (nickname) => {
+  const response = await fetch(getOcidUrl(nickname), {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-nxopen-api-key': process.env.REACT_APP_MAPLE_API_KEY,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Network response was not ok: ${response.statusText}`);
+  }
+
+  return response.json();
+};
+
 module.exports = {
   getStarForceUrl,
   getCharacterStatUrl,
   getOcidUrl,
+  getOcidFromNickname,
 };
