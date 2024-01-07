@@ -130,8 +130,23 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
   return itemsAndCost;
 };
 
+const getStarforceResultInfo = (starforceInfoArray) => {
+  let starforceResultInfo = Array.from({ length: 25 }, () => Array(2).fill(0));
+
+  starforceInfoArray.forEach((element) => {
+    if (element.item_upgrade_result === '성공') {
+      starforceResultInfo[element.before_starforce_count][0]++;
+    } else {
+      starforceResultInfo[element.before_starforce_count][1]++;
+    }
+  });
+
+  return starforceResultInfo;
+};
+
 module.exports = {
   calculateCost,
   getStarForceInfo,
   calculateCostForEachItemsFromArray,
+  getStarforceResultInfo,
 };
