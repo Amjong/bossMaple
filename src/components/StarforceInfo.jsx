@@ -1,7 +1,10 @@
 // import useStarforceQuery from '../service/hooks/useStarforceQuery';
 
 import { useCallback, useState } from 'react';
-import { getStarForceInfo } from '../util/starforceUtility';
+import {
+  calculateCostForEachItemsFromArray,
+  getStarForceInfo,
+} from '../util/starforceUtility';
 import InputBar from './InputBar';
 
 // let userInfo = {
@@ -11,6 +14,7 @@ import InputBar from './InputBar';
 export default function StarforceInfo() {
   // const { data } = useStarforceQuery(10, '2023-12-27');
   const [userInfo, setUserInfo] = useState({});
+  const [starforceInfoArray, setStarforceInfoArray] = useState([]);
   const handleSubmit = useCallback((event, value) => {
     event.preventDefault();
     const targetId = event.target.id;
@@ -22,13 +26,15 @@ export default function StarforceInfo() {
       [targetId]: targetValue,
     }));
   }, []);
-  const handleClick = async (event, value) => {
-    // TODO : fetching starforceINfo
-    const starforceInfoArray = await getStarForceInfo(
+  const handleClick = async () => {
+    const receivedArray = await getStarForceInfo(
       userInfo.apikey,
       userInfo.date
     );
-    console.log(starforceInfoArray);
+    console.log(receivedArray);
+    setStarforceInfoArray(() => {
+      return Array.from(receivedArray);
+    });
   };
   return (
     <div>
@@ -41,6 +47,20 @@ export default function StarforceInfo() {
       </div>
       <button onClick={handleClick}>Do it!</button>
       {/* <div className='text-white text-3xl'>{JSON.stringify(data)}</div> */}
+      <div>
+        <p>아이템 별 사용 메소량!</p>
+        {starforceInfoArray.length !== 0 &&
+          Array.from(
+            calculateCostForEachItemsFromArray(starforceInfoArray)
+          ).map((element) => {
+            return (
+              <div>
+                <p>아이템 이름 : {element[0]}</p>
+                <p>사용 메소량 : {element[1]}</p>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
