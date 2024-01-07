@@ -32,17 +32,17 @@ function App() {
               <Suspense fallback={<Loading></Loading>}>
                 <CharacterInfo></CharacterInfo>
               </Suspense>
-            </ErrorBoundary>
+            </ErrorBoundary> */}
             <ErrorBoundary fallback={<Error></Error>}>
               <Suspense fallback={<Loading></Loading>}>
                 <StarforceInfo></StarforceInfo>
               </Suspense>
-            </ErrorBoundary> */}
-            <ErrorBoundary fallback={<Error></Error>}>
+            </ErrorBoundary>
+            {/* <ErrorBoundary fallback={<Error></Error>}>
               <Suspense fallback={<Loading></Loading>}>
                 <CharacterInputTable />
               </Suspense>
-            </ErrorBoundary>
+            </ErrorBoundary> */}
           </div>
         </section>
         <footer className='text-black text-3xl text-center'>
