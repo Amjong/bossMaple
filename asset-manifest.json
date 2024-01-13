@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bossMaple/static/css/main.38980e14.css",
+    "main.js": "/bossMaple/static/js/main.49195de3.js",
+    "static/js/787.9cc25cfe.chunk.js": "/bossMaple/static/js/787.9cc25cfe.chunk.js",
+    "index.html": "/bossMaple/index.html",
+    "main.38980e14.css.map": "/bossMaple/static/css/main.38980e14.css.map",
+    "main.49195de3.js.map": "/bossMaple/static/js/main.49195de3.js.map",
+    "787.9cc25cfe.chunk.js.map": "/bossMaple/static/js/787.9cc25cfe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38980e14.css",
+    "static/js/main.49195de3.js"
+  ]
+}
