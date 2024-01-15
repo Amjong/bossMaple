@@ -48,7 +48,7 @@ export default function PeriodSelectPanel() {
             showIcon
             selected={endDate}
             onChange={onChangeEnd}
-            minDate={new Date('2023-12-27')}
+            minDate={new Date(startDate)}
             maxDate={new Date(startDate).setFullYear(
               startDate.getFullYear() + 1
             )}
