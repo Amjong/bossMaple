@@ -3,6 +3,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { logoSrc } from './data/image/encodedImage';
 import ImageIcon from '@mui/icons-material/Image';
 import MasterBadge from './components/ui/MasterBadge';
+import StarTextArea from './components/ui/StarTextArea';
+import RadioBtns from './components/ui/RadioBtns';
+import PeriodSelectPanel from './components/PeriodSelectPanel';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -54,6 +57,9 @@ function App() {
                 text='$닉네임$'
               />
             </div>
+          </div>
+          <div className='absolute w-[209px] h-[95px] top-[200px] left-[503px]'>
+            <PeriodSelectPanel />
           </div>
         </section>
         <footer className='fixed w-full h-[226px] bottom-0 bg-n2'>
