@@ -23,6 +23,8 @@ module.exports = {
         r2: '#DA4933',
         r3: '#E88D80',
         r4: '#F6D1CC',
+        n1: '#282C47',
+        n2: '#53566C',
       },
       fontFamily: {
         regular: ['NexonGothicRegular'],

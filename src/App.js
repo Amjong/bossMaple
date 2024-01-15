@@ -1,12 +1,6 @@
 import './App.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import Error from './components/Error';
-import Loading from './components/Loading';
-import CharacterInfo from './components/CharacterInfo';
-import StarforceInfo from './components/StarforceInfo';
-import CharacterInputTable from './components/CharacterInputTable';
+import { logoSrc } from './data/image/encodedImage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,18 +14,29 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className='flex flex-col'>
-        <section label='searchArea'>
-          <div className='text-xl'>폰트 테스트!!! 1</div>
-          <div className='text-3xl'>폰트 테스트!!! 2</div>
-          <div className='bg-y1 w-10 h-10 text-y1'>색상 테스트!</div>
-          <div className='bg-y2 w-10 h-10'>색상 테스트!</div>
-          <div className='bg-y4 w-10 h-10'>색상 테스트!</div>
-          <div className='bg-y5 w-10 h-10'>색상 테스트!</div>
-          <div className='bg-r1 w-10 h-10'>색상 테스트!</div>
-          <div className='bg-r2 w-10 h-10'>색상 테스트!</div>
-          <div className='bg-r3 w-10 h-10'>색상 테스트!</div>
-          <div className='bg-r4 w-10 h-10'>색상 테스트!</div>
-        </section>
+        <header className='fixed flex w-full h-[50px] bg-n1 items-center'>
+          <img
+            src={logoSrc}
+            alt='logo'
+            className='absolute w-[116px] h-[36px] translate-x-[50px]'
+          />
+          <div className='flex w-full items-center justify-end gap-[36px] pl-[25px] pr-0 py-0 relative translate-x-[-50px]'>
+            <div className='inline-flex items-center justify-end gap-[33px] relative flex-[0_0_auto]'>
+              <div className='font-regular text-y4 text-xl relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap [font-style:normal]'>
+                스타포스
+                {/* TODO : Add btn */}
+              </div>
+              <div className='font-regular font-light text-white relative w-fit mt-[-1.00px] text-xl text-center tracking-[0] leading-[normal] whitespace-nowrap'>
+                서비스가이드
+                {/* TODO : Add btn */}
+              </div>
+            </div>
+          </div>
+        </header>
+        <section
+          label='searchArea'
+          className='fixed w-full h-[374px] translate-y-[50px] translate-x-[0px] bg-[#1a202c]'
+        ></section>
       </div>
     </QueryClientProvider>
   );
