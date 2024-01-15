@@ -1,3 +1,5 @@
+const { searchBgSrc } = require('./src/data/image/encodedImage');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -20,15 +22,20 @@ module.exports = {
         y4: '#FFE380',
         y5: '#FFF4CC',
         r1: '#D11B00',
-        r2: '#DA4933',
+        r2: '#D74652',
         r3: '#E88D80',
         r4: '#F6D1CC',
         n1: '#282C47',
         n2: '#53566C',
+        black: '#1E1E1E',
+        white: '#FFFFFF',
       },
       fontFamily: {
         regular: ['NexonGothicRegular'],
         bold: ['NexonGothicBold'],
+      },
+      backgroundImage: {
+        custom: `url(${searchBgSrc})`,
       },
     },
   },
