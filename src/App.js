@@ -1,6 +1,8 @@
 import './App.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { logoSrc } from './data/image/encodedImage';
+import ImageIcon from '@mui/icons-material/Image';
+import MasterBadge from './components/ui/MasterBadge';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,7 +38,24 @@ function App() {
         <section
           label='searchArea'
           className='fixed w-full h-[374px] translate-y-[50px] translate-x-[0px] bg-[#1a202c]'
-        ></section>
+        >
+          <div className='absolute w-[299px] h-[297px] top-[39px] left-[100px]'>
+            <div className='absolute w-[299px] h-[232px] top-0 left-0 bg-n2 rounded-[10px]'>
+              <ImageIcon className='absolute !w-[77px] !h-[66px] !top-[94px] !left-[113px]' />
+            </div>
+            <div className='absolute bottom-0 flex gap-5 translate-x-7'>
+              <MasterBadge
+                className='!absolute !left-[128px] top-[264px]'
+                divClassName='!left-[31px]'
+                text='$레벨$'
+              />
+              <MasterBadge
+                className='!absolute !left-0 !top-[264px]'
+                text='$닉네임$'
+              />
+            </div>
+          </div>
+        </section>
         <footer className='fixed w-full h-[226px] bottom-0 bg-n2'>
           <div className='flex flex-col items-start gap-[27px] relative w-full h-[138px] top-[44px] left-[76px]'>
             <p className='relative self-stretch font-bold text-white text-xl tracking-[0] leading-[normal]'>
