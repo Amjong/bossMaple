@@ -4,6 +4,7 @@ import { logoSrc } from './data/image/encodedImage';
 import ImageIcon from '@mui/icons-material/Image';
 import MasterBadge from './components/ui/MasterBadge';
 import PeriodSelectPanel from './components/PeriodSelectPanel';
+import ApiKeyInputPanel from './components/ApiKeyInputPanel';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,7 +26,7 @@ function App() {
           />
           <div className='flex w-full items-center justify-end gap-[36px] pl-[25px] pr-0 py-0 relative translate-x-[-50px]'>
             <div className='inline-flex items-center justify-end gap-[33px] relative flex-[0_0_auto]'>
-              <div className='font-regular text-y4 text-xl relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap [font-style:normal]'>
+              <div className='font-regular font-extrabold text-y4 text-xl relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap'>
                 스타포스
                 {/* TODO : Add btn */}
               </div>
@@ -38,7 +39,7 @@ function App() {
         </header>
         <section
           label='searchArea'
-          className='fixed w-full h-[374px] translate-y-[50px] translate-x-[0px] bg-[#1a202c]'
+          className={`fixed bg-custom bg-cover w-full h-[374px] translate-y-[50px] translate-x-[0px] bg-[#1a202c]`}
         >
           <div className='absolute w-[299px] h-[297px] top-[39px] left-[100px]'>
             <div className='absolute w-[299px] h-[232px] top-0 left-0 bg-n2 rounded-[10px]'>
@@ -59,27 +60,30 @@ function App() {
           <div className='absolute w-[209px] h-[95px] top-[200px] left-[503px]'>
             <PeriodSelectPanel />
           </div>
+          <div className='absolute w-[861px] h-[117px] top-[39px] left-[503px]'>
+            <ApiKeyInputPanel />
+          </div>
         </section>
         <footer className='fixed w-full h-[226px] bottom-0 bg-n2'>
-          <div className='flex flex-col items-start gap-[27px] relative w-full h-[138px] top-[44px] left-[76px]'>
+          <div className='flex flex-col items-start gap-[19px] relative w-full h-[138px] top-[44px] left-[76px]'>
             <p className='relative self-stretch font-bold text-white text-xl tracking-[0] leading-[normal]'>
-              <span className='font-bold text-white text-xl tracking-[0]'>
+              <span className='font-bold text-white text-lg tracking-[0]'>
                 ⓒ 2024 danpungbyeol All rights reserved.
                 <br />
               </span>
             </p>
             <p className='relative self-stretch font-bold text-xl tracking-[0] leading-[normal]'>
-              <span className='font-bold text-white text-xl tracking-[0]'>
+              <span className='font-bold text-white text-lg tracking-[0]'>
                 This site is not associated with NEXON Korea. Data sourced from
                 NEXON OpenAPI.
                 <br />
               </span>
             </p>
             <p className='relative self-stretch font-bold text-xl tracking-[0] leading-[normal]'>
-              <span className='font-bold text-white text-xl tracking-[0]'>
+              <span className='font-bold text-white text-lg tracking-[0]'>
                 Contact Us -{' '}
               </span>
-              <span className='underline text-white'>
+              <span className='underline text-white text-lg'>
                 danpungtokki@gmail.com
               </span>
             </p>
