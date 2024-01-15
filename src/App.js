@@ -17,11 +17,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className='flex flex-col'>
-        <header className='fixed flex w-full h-[50px] bg-n1 items-center'>
+        <header className='fixed flex w-full h-[60px] bg-n1 items-center'>
           <img
             src={logoSrc}
             alt='logo'
-            className='absolute w-[116px] h-[36px] translate-x-[50px]'
+            className='absolute w-[126px] h-[36px] translate-x-[50px]'
           />
           <div className='flex w-full items-center justify-end gap-[36px] pl-[25px] pr-0 py-0 relative translate-x-[-50px]'>
             <div className='inline-flex items-center justify-end gap-[33px] relative flex-[0_0_auto]'>
@@ -38,7 +38,7 @@ function App() {
         </header>
         <section
           label='searchArea'
-          className={`fixed bg-custom bg-cover w-full h-[374px] translate-y-[50px] translate-x-[0px] bg-[#1a202c]`}
+          className={`fixed bg-custom bg-cover w-full h-[374px] translate-y-[60px] translate-x-[0px] bg-[#1a202c]`}
         >
           <div className='absolute w-[385px] h-[300px] top-[39px] left-[100px]'>
             <AvatarPanel />
@@ -50,30 +50,28 @@ function App() {
             <ApiKeyInputPanel />
           </div>
         </section>
-        <footer className='fixed w-full h-[226px] bottom-0 bg-n2'>
-          <div className='flex flex-col items-start gap-[19px] relative w-full h-[138px] top-[44px] left-[76px]'>
-            <p className='relative self-stretch font-bold text-white text-xl tracking-[0] leading-[normal]'>
-              <span className='font-bold text-white text-lg tracking-[0]'>
-                ⓒ 2024 danpungbyeol All rights reserved.
-                <br />
-              </span>
-            </p>
-            <p className='relative self-stretch font-bold text-xl tracking-[0] leading-[normal]'>
-              <span className='font-bold text-white text-lg tracking-[0]'>
-                This site is not associated with NEXON Korea. Data sourced from
-                NEXON OpenAPI.
-                <br />
-              </span>
-            </p>
-            <p className='relative self-stretch font-bold text-xl tracking-[0] leading-[normal]'>
-              <span className='font-bold text-white text-lg tracking-[0]'>
-                Contact Us -{' '}
-              </span>
-              <span className='underline text-white text-lg'>
-                danpungtokki@gmail.com
-              </span>
-            </p>
-          </div>
+        <footer className='fixed w-full h-[128px] bottom-0 bg-n2 flex flex-col justify-center gap-[10px]'>
+          <p className='left-[50px] relative self-stretch font-bold text-white text-lg tracking-[0] leading-[normal]'>
+            <span className='font-regular text-white text-lg tracking-[0]'>
+              ⓒ 2024 danpungbyeol All rights reserved.
+              <br />
+            </span>
+          </p>
+          <p className='left-[50px]  relative self-stretch font-bold text-lg tracking-[0] leading-[normal]'>
+            <span className='font-regular text-white text-lg tracking-[0]'>
+              This site is not associated with NEXON Korea. Data sourced from
+              NEXON OpenAPI.
+              <br />
+            </span>
+          </p>
+          <p className='left-[50px]  relative self-stretch font-regular text-lg tracking-[0] leading-[normal]'>
+            <span className='font-regular text-white text-lg tracking-[0]'>
+              Contact Us -{' '}
+            </span>
+            <span className='underline text-white text-lg'>
+              danpungtokki@gmail.com
+            </span>
+          </p>
         </footer>
       </div>
     </QueryClientProvider>
