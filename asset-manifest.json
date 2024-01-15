@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/bossMaple/static/css/main.38980e14.css",
-    "main.js": "/bossMaple/static/js/main.49195de3.js",
+    "main.css": "/bossMaple/static/css/main.89d2e56a.css",
+    "main.js": "/bossMaple/static/js/main.17588f47.js",
     "static/js/787.9cc25cfe.chunk.js": "/bossMaple/static/js/787.9cc25cfe.chunk.js",
+    "static/media/NEXON Lv1 Gothic OTF Bold.woff": "/bossMaple/static/media/NEXON Lv1 Gothic OTF Bold.fea89342b1b0f7a386b6.woff",
+    "static/media/NEXON Lv1 Gothic OTF.woff": "/bossMaple/static/media/NEXON Lv1 Gothic OTF.eb1217e4bc7f9fe24aac.woff",
     "index.html": "/bossMaple/index.html",
-    "main.38980e14.css.map": "/bossMaple/static/css/main.38980e14.css.map",
-    "main.49195de3.js.map": "/bossMaple/static/js/main.49195de3.js.map",
+    "main.89d2e56a.css.map": "/bossMaple/static/css/main.89d2e56a.css.map",
+    "main.17588f47.js.map": "/bossMaple/static/js/main.17588f47.js.map",
     "787.9cc25cfe.chunk.js.map": "/bossMaple/static/js/787.9cc25cfe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.38980e14.css",
-    "static/js/main.49195de3.js"
+    "static/css/main.89d2e56a.css",
+    "static/js/main.17588f47.js"
   ]
 }
