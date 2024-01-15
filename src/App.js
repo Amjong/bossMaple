@@ -1,10 +1,9 @@
 import './App.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { logoSrc } from './data/image/encodedImage';
-import ImageIcon from '@mui/icons-material/Image';
-import MasterBadge from './components/ui/MasterBadge';
 import PeriodSelectPanel from './components/PeriodSelectPanel';
 import ApiKeyInputPanel from './components/ApiKeyInputPanel';
+import AvatarPanel from './components/AvatarPanel';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,21 +40,8 @@ function App() {
           label='searchArea'
           className={`fixed bg-custom bg-cover w-full h-[374px] translate-y-[50px] translate-x-[0px] bg-[#1a202c]`}
         >
-          <div className='absolute w-[299px] h-[297px] top-[39px] left-[100px]'>
-            <div className='absolute w-[299px] h-[232px] top-0 left-0 bg-n2 rounded-[10px]'>
-              <ImageIcon className='absolute !w-[77px] !h-[66px] !top-[94px] !left-[113px]' />
-            </div>
-            <div className='absolute bottom-0 flex gap-5 translate-x-7'>
-              <MasterBadge
-                className='!absolute !left-[128px] top-[264px]'
-                divClassName='!left-[31px]'
-                text='$레벨$'
-              />
-              <MasterBadge
-                className='!absolute !left-0 !top-[264px]'
-                text='$닉네임$'
-              />
-            </div>
+          <div className='absolute w-[385px] h-[300px] top-[39px] left-[100px]'>
+            <AvatarPanel />
           </div>
           <div className='absolute w-[209px] h-[95px] top-[200px] left-[503px]'>
             <PeriodSelectPanel />
