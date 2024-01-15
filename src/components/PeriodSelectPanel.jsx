@@ -18,13 +18,16 @@ export default function PeriodSelectPanel() {
     }
   }, []);
 
-  const onChangeEnd = useCallback((date) => {
-    if (date < startDate) {
-      alert('시작일보다 빠를 수 없습니다.');
-      return;
-    }
-    setEndDate(date);
-  }, []);
+  const onChangeEnd = useCallback(
+    (date) => {
+      if (date < startDate) {
+        alert('시작일보다 빠를 수 없습니다.');
+        return;
+      }
+      setEndDate(date);
+    },
+    [startDate]
+  );
 
   return (
     <>
@@ -33,7 +36,7 @@ export default function PeriodSelectPanel() {
         <RadioBtns onSelect={onSelect} />
       </div>
       {isPeriod && (
-        <div className='absolute flex gap-2 left-[202px]'>
+        <div className='absolute flex gap-4 left-[202px] mt-1'>
           <ReactDatePicker
             showIcon
             selected={startDate}
