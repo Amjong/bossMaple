@@ -8,8 +8,16 @@ export default function ApiKeyInputPanel() {
     e.preventDefault();
     setText(e.target.value);
   };
-  const onClickSubmit = useCallback(() => {}, []);
-  const onClickReset = useCallback(() => {}, []);
+  const onClickSubmit = useCallback((value) => {
+    if (value === undefined || value === '') {
+      alert('값을 입력해주세요!');
+    }
+    /* TODO 1) Save to localStorage */
+    /* TODO 2) fetching starforce info */
+  }, []);
+  const onClickReset = useCallback(() => {
+    setText('');
+  }, []);
   return (
     <div>
       <StarTextArea text='API KEY 값' />
@@ -21,7 +29,11 @@ export default function ApiKeyInputPanel() {
           type='password'
           className='w-[580px] h-[46px] bg-white rounded-[30px] focus:outline-n1 text-center'
         />
-        <MasterPrimaryButton text='조회' onClick={onClickSubmit} color='r2' />
+        <MasterPrimaryButton
+          text='조회'
+          onClick={() => onClickSubmit(text)}
+          color='r2'
+        />
         <MasterPrimaryButton text='초기화' onClick={onClickReset} color='n2' />
       </div>
     </div>
