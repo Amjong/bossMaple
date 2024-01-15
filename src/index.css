@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* import your font */
+@font-face {
+  font-family: 'NexonGothicBold';
+  src: url('/public/fonts/NEXON Lv1 Gothic OTF Bold.woff') format('woff'); /* adjust the path and format */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NexonGothicRegular';
+  src: url('/public/fonts/NEXON Lv1 Gothic OTF.woff') format('woff'); /* adjust the path and format */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* apply the font globally */
+body {
+  font-family: 'NexonGothicBold', 'NexonGothicRegular'; /* use the font-family you specified in @font-face */
+}
