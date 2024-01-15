@@ -3,8 +3,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { logoSrc } from './data/image/encodedImage';
 import ImageIcon from '@mui/icons-material/Image';
 import MasterBadge from './components/ui/MasterBadge';
-import StarTextArea from './components/ui/StarTextArea';
-import RadioBtns from './components/ui/RadioBtns';
 import PeriodSelectPanel from './components/PeriodSelectPanel';
 
 const queryClient = new QueryClient({
