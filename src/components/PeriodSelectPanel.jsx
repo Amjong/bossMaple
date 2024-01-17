@@ -30,32 +30,34 @@ export default function PeriodSelectPanel() {
   );
 
   return (
-    <>
-      <StarTextArea text='조회기간' className='!absolute !left-[2px] !top-0' />
-      <div className='absolute w-[200px] h-[48px] top-[47px] left-2'>
-        <RadioBtns onSelect={onSelect} />
-      </div>
-      {isPeriod && (
-        <div className='absolute flex gap-4 left-[202px] mt-1'>
-          <ReactDatePicker
-            showIcon
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            minDate={new Date('2023-12-27')}
-            placeholderText='시작일'
-          />
-          <ReactDatePicker
-            showIcon
-            selected={endDate}
-            onChange={onChangeEnd}
-            minDate={new Date(startDate)}
-            maxDate={new Date(startDate).setFullYear(
-              startDate.getFullYear() + 1
-            )}
-            placeholderText='종료일'
-          />
+    <div>
+      <StarTextArea text='조회기간' />
+      <div className='flex flex-col translate-x-[11px] mt-5 sm:flex-row flex-wrap'>
+        <div className='min-x-[182px]'>
+          <RadioBtns onSelect={onSelect} />
         </div>
-      )}
-    </>
+        {isPeriod && (
+          <div className='flex gap-5'>
+            <ReactDatePicker
+              showIcon
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              minDate={new Date('2023-12-27')}
+              placeholderText='시작일'
+            />
+            <ReactDatePicker
+              showIcon
+              selected={endDate}
+              onChange={onChangeEnd}
+              minDate={new Date(startDate)}
+              maxDate={new Date(startDate).setFullYear(
+                startDate.getFullYear() + 1
+              )}
+              placeholderText='종료일'
+            />
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

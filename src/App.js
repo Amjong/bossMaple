@@ -38,16 +38,14 @@ function App() {
         </header>
         <section
           label='searchArea'
-          className={`fixed bg-custom bg-cover w-full h-[374px] translate-y-[60px] translate-x-[0px] bg-[#1a202c]`}
+          className='fixed flex bg-custom bg-fixed bg-cover w-full h-2/5 min-h-[420px] sm:min-h-[350px] top-[60px]'
         >
-          <div className='absolute w-[385px] h-[300px] top-[39px] left-[100px]'>
+          <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
             <AvatarPanel />
           </div>
-          <div className='absolute w-[209px] h-[95px] top-[200px] left-[503px]'>
-            <PeriodSelectPanel />
-          </div>
-          <div className='absolute w-[861px] h-[117px] top-[39px] left-[503px]'>
+          <div className='flex flex-col mt-10 w-full'>
             <ApiKeyInputPanel />
+            <PeriodSelectPanel />
           </div>
         </section>
         <footer className='fixed w-full h-[128px] bottom-0 bg-n2 flex flex-col justify-center gap-[10px]'>

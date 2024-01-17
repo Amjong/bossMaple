@@ -7,11 +7,7 @@ export default function StarTextArea({ text }) {
       <div className='absolute h-[28px] top-[7px] left-[50px] font-bold whitespace-nowrap leading-[normal] tracking-[0] text-xl text-y4'>
         {text}
       </div>
-      <img
-        className='absolute w-[45px] h-[44px] top-0 left-0'
-        alt='img'
-        src={starSrc}
-      />
+      <img className='w-[45px] h-[44px]' alt='img' src={starSrc} />
     </div>
   );
 }

@@ -36,6 +36,8 @@ module.exports = {
       },
       backgroundImage: {
         custom: `url(${searchBgSrc})`,
+        fixed: 'fixed',
+        cover: 'cover',
       },
     },
   },

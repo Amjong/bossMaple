@@ -20,4 +20,5 @@
 /* apply the font globally */
 body {
   font-family: 'NexonGothicBold', 'NexonGothicRegular'; /* use the font-family you specified in @font-face */
+  overflow: auto;
 }

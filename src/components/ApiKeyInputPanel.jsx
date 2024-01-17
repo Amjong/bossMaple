@@ -19,15 +19,15 @@ export default function ApiKeyInputPanel() {
     setText('');
   }, []);
   return (
-    <div>
+    <div className='mb-10 w-full'>
       <StarTextArea text='API KEY 값' />
-      <div className='flex gap-2 items-center mt-3'>
+      <div className='flex flex-col sm:flex-row gap-2 items-center mt-3 w-full shrink'>
         <input
           placeholder='API KEY 값을 입력해주세요'
           value={text}
           onChange={handleChange}
           type='password'
-          className='w-[580px] h-[46px] bg-white rounded-[30px] focus:outline-n1 text-center'
+          className='xl:w-3/5 w-4/5 min-w-[400px] h-[46px] max-w-[1000px] bg-white rounded-[30px] focus:outline-n1 text-center'
         />
         <MasterPrimaryButton
           text='조회'
