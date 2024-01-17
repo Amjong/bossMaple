@@ -4,8 +4,10 @@ import { useCallback, useState } from 'react';
 import {
   calculateCostForEachItemsFromArray,
   getStarForceInfo,
+  getStarforceProgressInfo,
   getStarforceResultInfo,
 } from '../util/starforceUtility';
+import ChartGraph from './ChartGraph';
 import InputBar from './InputBar';
 
 // let userInfo = {
@@ -16,7 +18,7 @@ export default function StarforceInfo() {
   // const { data } = useStarforceQuery(10, '2023-12-27');
   const [userInfo, setUserInfo] = useState({});
   const [starforceInfoArray, setStarforceInfoArray] = useState([]);
-  const handleSubmit = useCallback((event, value) => {
+  const handleSubmit = useCallback((event) => {
     event.preventDefault();
     const targetId = event.target.id;
     const targetValue = event.target[0].value;
@@ -62,10 +64,33 @@ export default function StarforceInfo() {
             );
           })}
       </div>
+      <div className='border-2 border-solid border-black overflow-auto'>
+        <p>아이템 별 강화 히스토리 그래프!</p>
+        {starforceInfoArray.length !== 0 &&
+          Array.from(getStarforceProgressInfo(starforceInfoArray)).map(
+            (element) => {
+              let rowData = Array.from(
+                { length: element[1].length },
+                (_, index) => index + 1
+              );
+              let colData = Array.from(element[1]).reverse();
+              return (
+                <ChartGraph
+                  name={element[0]}
+                  rowData={rowData}
+                  colData={colData}
+                />
+              );
+            }
+          )}
+      </div>
       <div className='border-2 border-solid border-black'>
         <p>구간 별 성공률!</p>
         {starforceInfoArray.length !== 0 &&
           getStarforceResultInfo(starforceInfoArray).map((element, index) => {
+            if (index < 12) {
+              return <div></div>;
+            }
             return (
               <div>
                 <p className='text-bold'>

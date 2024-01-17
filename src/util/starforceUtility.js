@@ -49,7 +49,6 @@ const getStarForceInfo = async (apikey, dateString) => {
     }
 
     const finalResponse = await response.json();
-    // console.log(finalResponse);
     finalResponse.starforce_history.forEach((element) => {
       starforceHistoryArray.push(element);
     });
@@ -95,20 +94,14 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
       element.before_starforce_count
     );
 
-    console.log(originalCost);
-
     currentCost = applyStarforceEventList(
       element.starforce_event_list,
       originalCost
     );
 
-    console.log(currentCost);
-
     if (element.destroy_defence === '파괴 방지 적용') {
       currentCost += originalCost;
     }
-
-    console.log('파방 적용 : ' + currentCost);
 
     if (!itemsAndCost.has(element.target_item)) {
       itemsAndCost.set(element.target_item, currentCost);
@@ -120,11 +113,6 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
         `${element.target_item} : ${currentCostofItem + currentCost}`
       );
     }
-  });
-
-  let tempArr = [...itemsAndCost];
-  tempArr.forEach((element) => {
-    console.log(`${element[0]}, ${element[1]}`);
   });
 
   return itemsAndCost;
@@ -144,9 +132,32 @@ const getStarforceResultInfo = (starforceInfoArray) => {
   return starforceResultInfo;
 };
 
+const getStarforceProgressInfo = (starforceInfoArray) => {
+  let itemsAndProgressInfo = new Map();
+
+  starforceInfoArray.forEach((element) => {
+    if (!itemsAndProgressInfo.has(element.target_item)) {
+      let firstArray = [
+        element.after_starforce_count,
+        element.before_starforce_count,
+      ];
+      itemsAndProgressInfo.set(element.target_item, firstArray);
+    } else {
+      let progressInfoArray = itemsAndProgressInfo.get(element.target_item);
+      itemsAndProgressInfo.set(element.target_item, [
+        ...progressInfoArray,
+        element.after_starforce_count,
+      ]);
+    }
+  });
+
+  return itemsAndProgressInfo;
+};
+
 module.exports = {
   calculateCost,
   getStarForceInfo,
   calculateCostForEachItemsFromArray,
   getStarforceResultInfo,
+  getStarforceProgressInfo,
 };
