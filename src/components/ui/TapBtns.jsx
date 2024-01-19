@@ -15,7 +15,7 @@ const tabBtnsArray = [
 export default function TapBtns({ onChanged }) {
   const [selectedValue, setSelectedValue] = useState(0);
   return (
-    <div>
+    <div className='w-full flex justify-start gap-3'>
       {tabBtnsArray.map((tabBtn, index) => {
         return (
           <TapBtn

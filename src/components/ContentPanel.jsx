@@ -22,7 +22,7 @@ export default function ContentPanel() {
     setMenu(value);
   };
   return (
-    <div>
+    <div className='w-full'>
       <TapBtns onChanged={handleChange} />
       {contentArray[menu].component}
     </div>
