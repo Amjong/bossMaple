@@ -25,6 +25,7 @@ module.exports = {
         r2: '#D74652',
         r3: '#E88D80',
         r4: '#F6D1CC',
+        n0: '#1A202C',
         n1: '#282C47',
         n2: '#53566C',
         black: '#1E1E1E',

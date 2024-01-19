@@ -4,6 +4,7 @@ import { logoSrc } from './data/image/encodedImage';
 import PeriodSelectPanel from './components/PeriodSelectPanel';
 import ApiKeyInputPanel from './components/ApiKeyInputPanel';
 import AvatarPanel from './components/AvatarPanel';
+import ContentPanel from './components/ContentPanel';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,12 +17,12 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className='flex flex-col'>
-        <header className='fixed flex w-full h-[60px] bg-n1 items-center'>
+      <div className='flex flex-col h-full'>
+        <header className='fixed flex w-full basis-[5.5%] bg-n1 items-center z-10'>
           <img
             src={logoSrc}
             alt='logo'
-            className='absolute w-[126px] h-[36px] translate-x-[50px]'
+            className='w-[126px] h-4/5 translate-x-[50px]'
           />
           <div className='flex w-full items-center justify-end gap-[36px] pl-[25px] pr-0 py-0 relative translate-x-[-50px]'>
             <div className='inline-flex items-center justify-end gap-[33px] relative flex-[0_0_auto]'>
@@ -38,7 +39,7 @@ function App() {
         </header>
         <section
           label='searchArea'
-          className='fixed flex bg-custom bg-fixed bg-cover w-full h-2/5 min-h-[420px] sm:min-h-[350px] top-[60px]'
+          className='flex bg-custom bg-fixed bg-cover w-full basis-[15.4%] z-0'
         >
           <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
             <AvatarPanel />
@@ -48,7 +49,15 @@ function App() {
             <PeriodSelectPanel />
           </div>
         </section>
-        <footer className='fixed w-full h-[128px] bottom-0 bg-n2 flex flex-col justify-center gap-[10px]'>
+        <section
+          label='contentArea'
+          className='overflow-y-auto bg-n1 h-full w-full flex flex-col basis-[69.8%]'
+        >
+          <div className='px-[80px] py-[36.96px] h-[1500px] w-full'>
+            <ContentPanel />
+          </div>
+        </section>
+        <footer className='w-full basis-[9.3%] bottom-0 bg-n2 flex flex-col justify-center gap-[10px]'>
           <p className='left-[50px] relative self-stretch font-bold text-white text-lg tracking-[0] leading-[normal]'>
             <span className='font-regular text-white text-lg tracking-[0]'>
               ⓒ 2024 danpungbyeol All rights reserved.
