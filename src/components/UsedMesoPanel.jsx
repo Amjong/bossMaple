@@ -9,9 +9,11 @@ export default function UsedMesoPanel() {
       {starforceInfoArray.length !== 0 &&
         Array.from(calculateCostForEachItemsFromArray(starforceInfoArray)).map(
           (element) => {
+            let convertedKey = element[0].split('|');
             return (
               <div>
-                <p>아이템 이름 : {element[0]}</p>
+                <p>아이템 이름 : {convertedKey[0]}</p>
+                <p>서버/캐릭터 : {convertedKey[1]}</p>
                 <p>사용 메소량 : {element[1]}</p>
               </div>
             );

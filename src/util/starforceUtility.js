@@ -66,17 +66,11 @@ const getStarForceInfoByDate = async (
   startDateString,
   endDateString
 ) => {
-  console.log(startDateString);
-  console.log(endDateString);
   const startDate = new Date(startDateString);
   const endDate = new Date(endDateString);
   if (startDate > endDate) {
     throw new Error('startDate should be earlier than endDate');
   }
-
-  console.log('api key : ' + apikey);
-  console.log('startDate : ' + startDate);
-  console.log('endDate : ' + endDate);
 
   let starforceHistoryArray = [];
 
@@ -86,7 +80,6 @@ const getStarForceInfoByDate = async (
       apikey,
       startDate.toISOString().slice(0, 10)
     );
-    console.log(currentDateArray);
     starforceHistoryArray = starforceHistoryArray.concat(currentDateArray);
     // TODO : exception handling
     startDate.setDate(startDate.getDate() + 1);
@@ -109,12 +102,7 @@ const applyStarforceEventList = (eventListArray, currentCost) => {
     }
   });
 
-  console.log(totalDiscountRate);
-
-  console.log(currentCost);
-
   finalCost *= 1 - totalDiscountRate / 100;
-  console.log(finalCost);
   return Math.round(finalCost / 10) * 10;
 };
 
@@ -138,15 +126,16 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
       currentCost += originalCost;
     }
 
-    if (!itemsAndCost.has(element.target_item)) {
-      itemsAndCost.set(element.target_item, currentCost);
-      console.log(`${element.target_item} : ${currentCost}`);
+    let currentKey = [
+      element.target_item,
+      `${element.world_name}/${element.character_name}`,
+    ].join('|');
+
+    if (!itemsAndCost.has(currentKey)) {
+      itemsAndCost.set(currentKey, currentCost);
     } else {
-      const currentCostofItem = itemsAndCost.get(element.target_item);
-      itemsAndCost.set(element.target_item, currentCostofItem + currentCost);
-      console.log(
-        `${element.target_item} : ${currentCostofItem + currentCost}`
-      );
+      const currentCostofItem = itemsAndCost.get(currentKey);
+      itemsAndCost.set(currentKey, currentCostofItem + currentCost);
     }
   });
 
