@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import StarTextArea from './ui/StarTextArea';
 import { MasterPrimaryButton } from './ui/MasterPrimaryButton';
+import { useStarforceInfoArray } from '../context/starforceInfoContext';
+import { useUserInfo } from '../context/userInfoContext';
+import { getStarForceInfoByDate } from '../util/starforceUtility';
 
 export default function ApiKeyInputPanel() {
   const [text, setText] = useState('');
@@ -8,15 +11,31 @@ export default function ApiKeyInputPanel() {
     e.preventDefault();
     setText(e.target.value);
   };
-  const onClickSubmit = useCallback((value) => {
-    if (value === undefined || value === '') {
-      alert('값을 입력해주세요!');
-    }
-    /* TODO 1) Save to localStorage */
-    /* TODO 2) fetching starforce info */
-  }, []);
+  const [userInfo, setUserInfo] = useUserInfo();
+  const [starforceInfoArray, setStarforceInfoArray] = useStarforceInfoArray();
+  const onClickSubmit = useCallback(
+    async (value) => {
+      if (value === undefined || value === '') {
+        alert('API Key 값을 입력해주세요!');
+      }
+      /* TODO 1) Save to localStorage */
+      /* TODO 2) fetching starforce info */
+
+      const receivedArray = await getStarForceInfoByDate(
+        value,
+        userInfo.startDate,
+        userInfo.endDate
+      );
+      console.log(receivedArray);
+      setStarforceInfoArray(() => {
+        return Array.from(receivedArray);
+      });
+    },
+    [userInfo]
+  );
   const onClickReset = useCallback(() => {
     setText('');
+    setUserInfo({});
   }, []);
   return (
     <div className='mb-10 w-full'>

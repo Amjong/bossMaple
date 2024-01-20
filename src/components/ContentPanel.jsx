@@ -24,7 +24,7 @@ export default function ContentPanel() {
   return (
     <div className='w-full'>
       <TapBtns onChanged={handleChange} />
-      {contentArray[menu].component}
+      <div className='mt-10'>{contentArray[menu].component}</div>
     </div>
   );
 }

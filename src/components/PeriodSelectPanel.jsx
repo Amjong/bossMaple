@@ -1,32 +1,63 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import StarTextArea from './ui/StarTextArea';
 import RadioBtns from './ui/RadioBtns';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useUserInfo } from '../context/userInfoContext';
 
 export default function PeriodSelectPanel() {
   const [isPeriod, setIsPeriod] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const onSelect = useCallback((value) => {
-    if (value === 'all') {
-      setIsPeriod(false);
-    } else if (value === 'partial') {
-      setIsPeriod(true);
-    } else {
-      console.log('error');
-    }
+  const [userInfo, setUserInfo] = useUserInfo();
+  const onSelect = useCallback(
+    (value) => {
+      if (value === 'all') {
+        setIsPeriod(false);
+        setUserInfo((prev) => ({
+          ...prev,
+          startDate: '2023-12-27',
+          endDate: new Date().toISOString().slice(0, 10),
+        }));
+      } else if (value === 'partial') {
+        setIsPeriod(true);
+        setUserInfo((prev) => ({
+          ...prev,
+          startDate: new Date(startDate).toISOString().slice(0, 10),
+          endDate: new Date(endDate).toISOString().slice(0, 10),
+        }));
+      } else {
+        console.log('error');
+      }
+    },
+    [setUserInfo]
+  );
+
+  useEffect(() => {
+    setUserInfo((prev) => ({
+      ...prev,
+      startDate: '2023-12-27',
+      endDate: new Date().toISOString().slice(0, 10),
+    }));
   }, []);
 
   const onChangeEnd = useCallback(
     (date) => {
       if (date < startDate) {
-        alert('시작일보다 빠를 수 없습니다.');
-        return;
+        setStartDate(date);
+        setUserInfo((prev) => ({
+          ...prev,
+          startDate: date.toISOString().slice(0, 10),
+        }));
       }
+      console.log(date);
       setEndDate(date);
+      setUserInfo((prev) => ({
+        ...prev,
+        endDate: date.toISOString().slice(0, 10),
+      }));
     },
-    [startDate]
+    [startDate, setUserInfo]
   );
 
   return (
@@ -41,7 +72,13 @@ export default function PeriodSelectPanel() {
             <ReactDatePicker
               showIcon
               selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              onChange={(date) => {
+                setStartDate(date);
+                setUserInfo((prev) => ({
+                  ...prev,
+                  startDate: date.toISOString().slice(0, 10),
+                }));
+              }}
               minDate={new Date('2023-12-27')}
               placeholderText='시작일'
             />
@@ -49,7 +86,7 @@ export default function PeriodSelectPanel() {
               showIcon
               selected={endDate}
               onChange={onChangeEnd}
-              minDate={new Date(startDate)}
+              minDate={new Date('2023-12-27')}
               maxDate={new Date(startDate).setFullYear(
                 startDate.getFullYear() + 1
               )}

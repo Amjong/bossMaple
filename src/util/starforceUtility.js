@@ -61,6 +61,40 @@ const getStarForceInfo = async (apikey, dateString) => {
   }
 };
 
+const getStarForceInfoByDate = async (
+  apikey,
+  startDateString,
+  endDateString
+) => {
+  console.log(startDateString);
+  console.log(endDateString);
+  const startDate = new Date(startDateString);
+  const endDate = new Date(endDateString);
+  if (startDate > endDate) {
+    throw new Error('startDate should be earlier than endDate');
+  }
+
+  console.log('api key : ' + apikey);
+  console.log('startDate : ' + startDate);
+  console.log('endDate : ' + endDate);
+
+  let starforceHistoryArray = [];
+
+  while (startDate <= endDate) {
+    console.log(`calculating ${startDate.toISOString().slice(0, 10)}....`);
+    const currentDateArray = await getStarForceInfo(
+      apikey,
+      startDate.toISOString().slice(0, 10)
+    );
+    console.log(currentDateArray);
+    starforceHistoryArray = starforceHistoryArray.concat(currentDateArray);
+    // TODO : exception handling
+    startDate.setDate(startDate.getDate() + 1);
+  }
+
+  return starforceHistoryArray;
+};
+
 const applyStarforceEventList = (eventListArray, currentCost) => {
   if (!eventListArray) {
     return currentCost;
@@ -160,4 +194,5 @@ module.exports = {
   calculateCostForEachItemsFromArray,
   getStarforceResultInfo,
   getStarforceProgressInfo,
+  getStarForceInfoByDate,
 };
