@@ -4,6 +4,21 @@ import { calculateCostForEachItemsFromArray } from '../util/starforceUtility';
 import { useTable, useFilters, useSortBy } from 'react-table';
 import FilterListIcon from '@mui/icons-material/FilterList';
 
+const formatNumberToKorean = (num) => {
+  const units = ['', '만', '억'];
+  const splitNum = String(num)
+    .split(/(?=(?:\d{4})+(?!\d))/g)
+    .reverse();
+  return splitNum
+    .map((n, i) => {
+      const parsed = parseInt(n, 10);
+      return parsed > 0 ? parsed + units[i] : '';
+    })
+    .reverse()
+    .join(' ')
+    .trim();
+};
+
 function CheckboxColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
@@ -134,7 +149,17 @@ function Table({ columns, data }) {
                       i % 2 === 0 ? 'bg-n2' : 'bg-n1'
                     }`}
                   >
-                    {cell.render('Cell')}
+                    {typeof cell.value === 'number' ? (
+                      <div>
+                        {cell.value.toLocaleString()}
+                        <br />
+                        <span className='text-xs'>
+                          {`(${formatNumberToKorean(cell.value)})`}
+                        </span>
+                      </div>
+                    ) : (
+                      cell.render('Cell')
+                    )}
                   </td>
                 );
               })}
@@ -178,7 +203,7 @@ export default function UsedMesoPanel() {
             return {
               item: convertedKey[0],
               character: convertedKey[1],
-              meso: element[1].toLocaleString(),
+              meso: element[1],
             };
           })}
         />
