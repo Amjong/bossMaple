@@ -123,10 +123,11 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
 
   starforceInfoArray.forEach((element) => {
     let currentCost = 0;
-    let originalCost = calculateCost(
-      getItemLevelFromTable(element.target_item),
-      element.before_starforce_count
-    );
+    let itemLevel = getItemLevelFromTable(element.target_item);
+    if (itemLevel === undefined) {
+      return;
+    }
+    let originalCost = calculateCost(itemLevel, element.before_starforce_count);
 
     currentCost = applyStarforceEventList(
       element.starforce_event_list,
