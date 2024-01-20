@@ -23,7 +23,7 @@ function CheckboxColumnFilter({
   };
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col space-y-2'>
       <label>
         <input type='checkbox' checked={selectAll} onChange={toggleSelectAll} />{' '}
         전체 선택
@@ -69,7 +69,7 @@ function Table({ columns, data }) {
 
   return (
     <table {...getTableProps()} className='min-w-full divide-y divide-gray-200'>
-      <thead className='bg-gray-50'>
+      <thead className='bg-black font-bold text-white border-b-2 border-white '>
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
@@ -77,7 +77,7 @@ function Table({ columns, data }) {
                 {...column.getHeaderProps(
                   column.id === 'meso' ? column.getSortByToggleProps() : {}
                 )}
-                className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
+                className='px-6 py-3 text-left text-xs text-white uppercase tracking-wider'
               >
                 {column.render('Header')}
 
@@ -103,7 +103,7 @@ function Table({ columns, data }) {
                       <FilterListIcon />
                     </button>
                     {showFilters[column.id] && column.canFilter ? (
-                      <div className='origin-top-right absolute right-0 mt-2 left-10 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5'>
+                      <div className='origin-top-right absolute font-regular text-white right-0 mt-2 left-10 w-56 rounded-md shadow-lg bg-n2 ring-1 ring-black ring-opacity-5'>
                         <div
                           className='py-1'
                           role='menu'
@@ -121,19 +121,18 @@ function Table({ columns, data }) {
           </tr>
         ))}
       </thead>
-      <tbody
-        {...getTableBodyProps()}
-        className='bg-white divide-y divide-gray-200'
-      >
-        {rows.map((row, i) => {
+      <tbody {...getTableBodyProps()}>
+        {rows.map((row) => {
           prepareRow(row);
           return (
             <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
+              {row.cells.map((cell, i) => {
                 return (
                   <td
                     {...cell.getCellProps()}
-                    className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'
+                    className={`px-6 py-4 whitespace-nowrap text-sm text-white font-regular border-1 border-b border-white ${
+                      i % 2 === 0 ? 'bg-n2' : 'bg-n1'
+                    }`}
                   >
                     {cell.render('Cell')}
                   </td>
@@ -179,7 +178,7 @@ export default function UsedMesoPanel() {
             return {
               item: convertedKey[0],
               character: convertedKey[1],
-              meso: element[1],
+              meso: element[1].toLocaleString(),
             };
           })}
         />
