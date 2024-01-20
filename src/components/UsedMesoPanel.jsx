@@ -3,6 +3,8 @@ import { useStarforceInfoArray } from '../context/starforceInfoContext';
 import { calculateCostForEachItemsFromArray } from '../util/starforceUtility';
 import { useTable, useFilters, useSortBy } from 'react-table';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { useLoading } from '../context/loadingContext';
+import { Skeleton } from '@mui/material';
 
 const formatNumberToKorean = (num) => {
   const units = ['', '만', '억'];
@@ -171,8 +173,31 @@ function Table({ columns, data }) {
   );
 }
 
+const TableSkeleton = () => {
+  return (
+    <table>
+      <tbody>
+        {Array.from({ length: 5 }).map((_, rowIndex) => (
+          <tr key={rowIndex}>
+            {Array.from({ length: 3 }).map((_, colIndex) => (
+              <td key={colIndex}>
+                <Skeleton
+                  variant='rect'
+                  width={colIndex === 0 ? 550 : 350}
+                  height={rowIndex === 0 ? 68 : 118}
+                />
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
 export default function UsedMesoPanel() {
   const [starforceInfoArray] = useStarforceInfoArray();
+  const [isLoading] = useLoading();
   const columns = useMemo(
     () => [
       {
@@ -191,9 +216,11 @@ export default function UsedMesoPanel() {
     ],
     []
   );
+
   return (
     <div>
-      {starforceInfoArray.length !== 0 && (
+      {isLoading && <TableSkeleton />}
+      {!isLoading && starforceInfoArray.length !== 0 && (
         <Table
           columns={columns}
           data={Array.from(

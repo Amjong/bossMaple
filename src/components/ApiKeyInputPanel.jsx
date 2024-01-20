@@ -4,6 +4,7 @@ import { MasterPrimaryButton } from './ui/MasterPrimaryButton';
 import { useStarforceInfoArray } from '../context/starforceInfoContext';
 import { useUserInfo } from '../context/userInfoContext';
 import { getStarForceInfoByDate } from '../util/starforceUtility';
+import { useLoading } from '../context/loadingContext';
 
 export default function ApiKeyInputPanel() {
   const [text, setText] = useState('');
@@ -13,6 +14,7 @@ export default function ApiKeyInputPanel() {
   };
   const [userInfo, setUserInfo] = useUserInfo();
   const [starforceInfoArray, setStarforceInfoArray] = useStarforceInfoArray();
+  const [isLoading, setIsLoading] = useLoading();
   const onClickSubmit = useCallback(
     async (value) => {
       if (value === undefined || value === '') {
@@ -20,7 +22,7 @@ export default function ApiKeyInputPanel() {
       }
       /* TODO 1) Save to localStorage */
       /* TODO 2) fetching starforce info */
-
+      setIsLoading(true);
       const receivedArray = await getStarForceInfoByDate(
         value,
         userInfo.startDate,
@@ -30,6 +32,7 @@ export default function ApiKeyInputPanel() {
       setStarforceInfoArray(() => {
         return Array.from(receivedArray);
       });
+      setIsLoading(false);
     },
     [userInfo]
   );

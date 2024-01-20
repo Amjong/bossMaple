@@ -7,6 +7,7 @@ import AvatarPanel from './components/AvatarPanel';
 import ContentPanel from './components/ContentPanel';
 import { StarforceProvider } from './context/starforceInfoContext';
 import { UserInfoProvider } from './context/userInfoContext';
+import { LoadingProvider } from './context/loadingContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,26 +42,28 @@ function App() {
                 </div>
               </div>
             </header>
-            <section
-              label='searchArea'
-              className='flex bg-custom bg-fixed bg-cover w-full basis-[15.4%] z-0'
-            >
-              <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
-                <AvatarPanel />
-              </div>
-              <div className='flex flex-col mt-10 w-full'>
-                <ApiKeyInputPanel />
-                <PeriodSelectPanel />
-              </div>
-            </section>
-            <section
-              label='contentArea'
-              className='overflow-y-auto bg-n1 h-full w-full flex flex-col basis-[69.8%]'
-            >
-              <div className='px-[80px] py-[36.96px] h-[1500px] w-full'>
-                <ContentPanel />
-              </div>
-            </section>
+            <LoadingProvider>
+              <section
+                label='searchArea'
+                className='flex bg-custom bg-fixed bg-cover w-full basis-[15.4%] z-0'
+              >
+                <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
+                  <AvatarPanel />
+                </div>
+                <div className='flex flex-col mt-10 w-full'>
+                  <ApiKeyInputPanel />
+                  <PeriodSelectPanel />
+                </div>
+              </section>
+              <section
+                label='contentArea'
+                className='overflow-y-auto bg-n1 h-full w-full flex flex-col basis-[69.8%]'
+              >
+                <div className='px-[80px] py-[36.96px] h-[1500px] w-full'>
+                  <ContentPanel />
+                </div>
+              </section>
+            </LoadingProvider>
             <footer className='w-full basis-[9.3%] bottom-0 bg-n2 flex flex-col justify-center gap-[10px]'>
               <p className='left-[50px] relative self-stretch font-bold text-white text-lg tracking-[0] leading-[normal]'>
                 <span className='font-regular text-white text-lg tracking-[0]'>
