@@ -7,7 +7,7 @@ import { getStarForceInfoByDate } from '../util/starforceUtility';
 import { useLoading } from '../context/loadingContext';
 
 export default function ApiKeyInputPanel() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState(localStorage.getItem('apiKey') || '');
   const handleChange = (e) => {
     e.preventDefault();
     setText(e.target.value);
@@ -20,7 +20,8 @@ export default function ApiKeyInputPanel() {
       if (value === undefined || value === '') {
         alert('API Key 값을 입력해주세요!');
       }
-      /* TODO 1) Save to localStorage */
+
+      localStorage.setItem('apiKey', value);
       /* TODO 2) fetching starforce info */
       setIsLoading(true);
       const receivedArray = await getStarForceInfoByDate(
@@ -39,6 +40,7 @@ export default function ApiKeyInputPanel() {
   const onClickReset = useCallback(() => {
     setText('');
     setUserInfo({});
+    localStorage.removeItem('apiKey');
   }, []);
   return (
     <div className='mb-10 w-full'>
