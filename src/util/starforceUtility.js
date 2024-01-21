@@ -33,16 +33,16 @@ const calculateCost = (Itemlevel, starforceCount) => {
 
 const getSuccessRate = (starforceCount) => {
   if (starforceCount < 3) {
-    return 95 - 5 * starforceCount;
+    return (95 - 5 * starforceCount) / 100;
   } else if (starforceCount < 15) {
-    return 100 - 5 * starforceCount;
+    return (100 - 5 * starforceCount) / 100;
   } else if (starforceCount < 23) {
-    return 30;
+    return 30 / 100;
   } else if (starforceCount < 24) {
-    return 3;
+    return 3 / 100;
   } else if (starforceCount < 25) {
-    return 2;
-  } else return 1;
+    return 2 / 100;
+  } else return 1 / 100;
 };
 
 const getStarForceInfo = async (apikey, dateString) => {
@@ -181,7 +181,10 @@ const getStarforceResultInfo = (starforceInfoArray) => {
   starforceResultInfo.forEach((element, index) => {
     let successRate = getSuccessRate(index);
     let starcatchSuccessRate = successRate * 1.05;
-    element[5] = element[0] * starcatchSuccessRate + element[1] * successRate;
+    element[5] = (
+      element[0] * starcatchSuccessRate +
+      element[1] * successRate
+    ).toFixed(2);
   });
 
   return starforceResultInfo;
