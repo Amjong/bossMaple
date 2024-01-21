@@ -31,6 +31,20 @@ const calculateCost = (Itemlevel, starforceCount) => {
   return Math.round(finalCost / 10) * 10;
 };
 
+const getSuccessRate = (starforceCount) => {
+  if (starforceCount < 3) {
+    return 95 - 5 * starforceCount;
+  } else if (starforceCount < 15) {
+    return 100 - 5 * starforceCount;
+  } else if (starforceCount < 23) {
+    return 30;
+  } else if (starforceCount < 24) {
+    return 3;
+  } else if (starforceCount < 25) {
+    return 2;
+  } else return 1;
+};
+
 const getStarForceInfo = async (apikey, dateString) => {
   let cursor = undefined;
   let starforceHistoryArray = [];
@@ -143,14 +157,31 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
 };
 
 const getStarforceResultInfo = (starforceInfoArray) => {
-  let starforceResultInfo = Array.from({ length: 25 }, () => Array(2).fill(0));
+  let starforceResultInfo = Array.from({ length: 25 }, () => Array(6).fill(0));
 
   starforceInfoArray.forEach((element) => {
-    if (element.item_upgrade_result === '성공') {
+    // Calculate starcatch result (trial count)
+    if (element.starcatch_result === '성공') {
       starforceResultInfo[element.before_starforce_count][0]++;
     } else {
       starforceResultInfo[element.before_starforce_count][1]++;
     }
+
+    // Calculate starforce result (success, failure, destroy)
+    if (element.item_upgrade_result === '성공') {
+      starforceResultInfo[element.before_starforce_count][2]++;
+    } else if (element.item_upgrade_result === '파괴') {
+      starforceResultInfo[element.before_starforce_count][4]++;
+    } else {
+      starforceResultInfo[element.before_starforce_count][3]++;
+    }
+  });
+
+  // Calculate starcatch result (average)
+  starforceResultInfo.forEach((element, index) => {
+    let successRate = getSuccessRate(index);
+    let starcatchSuccessRate = successRate * 1.05;
+    element[5] = element[0] * starcatchSuccessRate + element[1] * successRate;
   });
 
   return starforceResultInfo;
