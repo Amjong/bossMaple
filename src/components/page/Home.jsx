@@ -6,7 +6,6 @@ import ContentPanel from '../ContentPanel';
 import { StarforceProvider } from '../../context/starforceInfoContext';
 import { UserInfoProvider } from '../../context/userInfoContext';
 import { LoadingProvider } from '../../context/loadingContext';
-import Navbar from '../Navbar';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,7 +21,6 @@ export default function Home() {
       <StarforceProvider>
         <UserInfoProvider>
           <div className='flex flex-col h-full'>
-            <Navbar />
             <LoadingProvider>
               <section
                 label='searchArea'
