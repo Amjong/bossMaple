@@ -4,6 +4,7 @@ import RadioBtns from './ui/RadioBtns';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useUserInfo } from '../context/userInfoContext';
+import MyCalendar from './MyCalendar';
 
 export default function PeriodSelectPanel() {
   const [isPeriod, setIsPeriod] = useState(false);
@@ -69,10 +70,10 @@ export default function PeriodSelectPanel() {
         </div>
         {isPeriod && (
           <div className='flex gap-5'>
-            <ReactDatePicker
-              showIcon
+            <MyCalendar
               selected={startDate}
               onChange={(date) => {
+                console.log(date);
                 setStartDate(date);
                 setUserInfo((prev) => ({
                   ...prev,
@@ -82,8 +83,7 @@ export default function PeriodSelectPanel() {
               minDate={new Date('2023-12-27')}
               placeholderText='시작일'
             />
-            <ReactDatePicker
-              showIcon
+            <MyCalendar
               selected={endDate}
               onChange={onChangeEnd}
               minDate={new Date('2023-12-27')}
