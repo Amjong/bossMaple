@@ -73,7 +73,6 @@ export default function PeriodSelectPanel() {
             <MyCalendar
               selected={startDate}
               onChange={(date) => {
-                console.log(date);
                 setStartDate(date);
                 setUserInfo((prev) => ({
                   ...prev,

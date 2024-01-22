@@ -24,7 +24,7 @@ export default function Home() {
             <LoadingProvider>
               <section
                 label='searchArea'
-                className='flex bg-custom bg-fixed bg-cover w-full basis-[15.4%] z-0'
+                className='flex bg-custom bg-fixed bg-cover w-full pb-5'
               >
                 <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
                   <AvatarPanel />
@@ -36,7 +36,7 @@ export default function Home() {
               </section>
               <section
                 label='contentArea'
-                className='overflow-y-auto bg-n1 h-full w-full flex flex-col basis-[69.8%]'
+                className='overflow-y-auto bg-n1 h-full w-full flex flex-col '
               >
                 <div className='px-[80px] py-[36.96px] h-[1500px] w-full'>
                   <ContentPanel />
