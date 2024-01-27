@@ -6,6 +6,8 @@ import ContentPanel from '../ContentPanel';
 import { StarforceProvider } from '../../context/starforceInfoContext';
 import { UserInfoProvider } from '../../context/userInfoContext';
 import { LoadingProvider } from '../../context/loadingContext';
+import UpBtn from '../ui/UpBtn';
+import { useEffect, useState } from 'react';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,7 +17,29 @@ const queryClient = new QueryClient({
   },
 });
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+  });
+};
+
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // 스크롤 이벤트 핸들러
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <StarforceProvider>
@@ -42,6 +66,14 @@ export default function Home() {
                   <ContentPanel />
                 </div>
               </section>
+              {isVisible && (
+                <div
+                  className='fixed bottom-[100px] right-[35px]'
+                  onClick={scrollToTop}
+                >
+                  <UpBtn />
+                </div>
+              )}
             </LoadingProvider>
           </div>
         </UserInfoProvider>
