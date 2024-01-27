@@ -19,6 +19,7 @@ export default function ApiKeyInputPanel() {
     async (value) => {
       if (value === undefined || value === '') {
         alert('API Key 값을 입력해주세요!');
+        return;
       }
 
       localStorage.setItem('apiKey', value);
