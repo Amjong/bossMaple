@@ -212,14 +212,14 @@ export default function SuccessRatePanel() {
           <span>
             시도 횟수
             <br />
-            (캐치 성공/실패)
+            (캐치 O/X)
           </span>
         ),
         accessor: 'try',
         disableFilters: true,
       },
       {
-        Header: '성공 횟수',
+        Header: '성공 횟수 / 기댓값',
         accessor: 'success',
         disableFilters: true,
       },
@@ -231,11 +231,6 @@ export default function SuccessRatePanel() {
       {
         Header: '파괴 횟수',
         accessor: 'destroy',
-        disableFilters: true,
-      },
-      {
-        Header: '기댓값',
-        accessor: 'average',
         disableFilters: true,
       },
     ],
@@ -261,19 +256,47 @@ export default function SuccessRatePanel() {
                 ),
                 try: (
                   <span>
-                    {element[0] + element[1]}
+                    <span className='font-bold'>
+                      {element[0] + element[1]}회
+                    </span>
+
                     <br />
-                    {'('}
-                    {element[0]}
-                    {'/'}
-                    {element[1]}
-                    {')'}
+                    <span className='font-regular'>
+                      {'('}
+                      {element[0]}
+                      {'/'}
+                      {element[1]}
+                      {')'}
+                    </span>
                   </span>
                 ),
-                success: element[2],
-                failure: element[3],
-                destroy: element[4],
-                average: `${element[5]}회`,
+                success: (
+                  <span className='font-bold'>
+                    {`${element[2]}회 / ${element[5]}회`}
+                    <br />
+                    {element[2] !== 0 && element[5] !== 0 && (
+                      <span className='font-regular'>
+                        {'('}기댓값보다{' '}
+                        {element[2] > element[5] ? (
+                          <span className='text-y4'>
+                            {`${((element[2] / element[5]) * 100).toFixed(0)}%`}{' '}
+                            높습니다.
+                          </span>
+                        ) : (
+                          <span className='text-r3'>
+                            {`${
+                              100 - ((element[2] / element[5]) * 100).toFixed(0)
+                            }%`}{' '}
+                            낮습니다.
+                          </span>
+                        )}
+                        {')'}
+                      </span>
+                    )}
+                  </span>
+                ),
+                failure: `${element[3]}회`,
+                destroy: `${element[4]}회`,
               };
             }
           )}
