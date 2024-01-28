@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function Navbar() {
   const [menu, setMenu] = useState(0);
   return (
-    <header className='flex w-full bg-n1 items-center z-10'>
+    <header className='flex w-full bg-n1 items-center z-10 h-[45px]'>
       <div className='ml-10'>
         <Link to='/'>
           <img src={logoSrc} alt='logo' className='w-[126px] h-4/5' />
@@ -20,7 +20,7 @@ export default function Navbar() {
           >
             <Link
               to='/'
-              className='underline underline-offset-4'
+              className='underline underline-offset-4 text-xl'
               onClick={() => setMenu(0)}
             >
               스타포스
@@ -33,7 +33,7 @@ export default function Navbar() {
           >
             <Link
               to='/guide'
-              className='underline underline-offset-4'
+              className='underline underline-offset-4 text-xl'
               onClick={() => setMenu(1)}
             >
               서비스가이드
