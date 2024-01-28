@@ -35,6 +35,11 @@ export default function ApiKeyInputPanel() {
         return Array.from(receivedArray);
       });
       setIsLoading(false);
+      setUserInfo((prev) => ({
+        ...prev,
+        finalStartDate: userInfo.startDate,
+        finalEndDate: userInfo.endDate,
+      }));
     },
     [userInfo]
   );

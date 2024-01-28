@@ -230,9 +230,9 @@ export default function UsedMesoPanel() {
       {!isLoading && itemsAndCost && (
         <div>
           <div className='mb-10 mt-10 text-[24px]'>
-            <span className='text-white font-bold'>{`${userInfo.startDate} `}</span>
+            <span className='text-white font-bold'>{`${userInfo?.finalStartDate} `}</span>
             <span className='font-regular text-white'>부터 </span>
-            <span className='text-white font-bold'>{`${userInfo.endDate} `}</span>
+            <span className='text-white font-bold'>{`${userInfo?.finalEndDate} `}</span>
             <span className='font-regular text-white'>
               까지 사용한 총 메소는{' '}
             </span>
