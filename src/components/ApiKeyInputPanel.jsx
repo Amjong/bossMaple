@@ -45,7 +45,6 @@ export default function ApiKeyInputPanel() {
   );
   const onClickReset = useCallback(() => {
     setText('');
-    setUserInfo({});
     localStorage.removeItem('apiKey');
   }, []);
   return (

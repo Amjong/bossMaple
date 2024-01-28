@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import StarTextArea from './ui/StarTextArea';
 import RadioBtns from './ui/RadioBtns';
-import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useUserInfo } from '../context/userInfoContext';
 import MyCalendar from './MyCalendar';
