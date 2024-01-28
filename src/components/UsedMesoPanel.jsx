@@ -5,9 +5,10 @@ import { useTable, useFilters, useSortBy } from 'react-table';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { useLoading } from '../context/loadingContext';
 import { Skeleton } from '@mui/material';
+import { useUserInfo } from '../context/userInfoContext';
 
 const formatNumberToKorean = (num) => {
-  const units = ['', '만', '억'];
+  const units = ['', '만', '억', '조'];
   const splitNum = String(num)
     .split(/(?=(?:\d{4})+(?!\d))/g)
     .reverse();
@@ -197,6 +198,7 @@ const TableSkeleton = () => {
 
 export default function UsedMesoPanel() {
   const [starforceInfoArray] = useStarforceInfoArray();
+  const [userInfo] = useUserInfo();
   const [isLoading] = useLoading();
   const columns = useMemo(
     () => [
@@ -217,23 +219,43 @@ export default function UsedMesoPanel() {
     []
   );
 
+  let itemsAndCost = useMemo(() => {
+    if (starforceInfoArray.length === 0) return;
+    return Array.from(calculateCostForEachItemsFromArray(starforceInfoArray));
+  }, [starforceInfoArray]);
+
   return (
     <div>
       {isLoading && <TableSkeleton />}
-      {!isLoading && starforceInfoArray.length !== 0 && (
-        <Table
-          columns={columns}
-          data={Array.from(
-            calculateCostForEachItemsFromArray(starforceInfoArray)
-          ).map((element) => {
-            let convertedKey = element[0].split('|');
-            return {
-              item: convertedKey[0],
-              character: convertedKey[1],
-              meso: element[1],
-            };
-          })}
-        />
+      {!isLoading && itemsAndCost && (
+        <div>
+          <div className='mb-10 mt-10 text-[24px]'>
+            <span className='text-white font-bold'>{`${userInfo.startDate} `}</span>
+            <span className='font-regular text-white'>부터 </span>
+            <span className='text-white font-bold'>{`${userInfo.endDate} `}</span>
+            <span className='font-regular text-white'>
+              까지 사용한 총 메소는{' '}
+            </span>
+            <span className='text-y4 font-bold'>
+              {`${itemsAndCost
+                .reduce((c, cv) => c + cv[1], 0)
+                .toLocaleString()} `}
+            </span>
+            <span className='font-regular text-white'>메소 입니다.</span>
+          </div>
+
+          <Table
+            columns={columns}
+            data={itemsAndCost.map((element) => {
+              let convertedKey = element[0].split('|');
+              return {
+                item: convertedKey[0],
+                character: convertedKey[1],
+                meso: element[1],
+              };
+            })}
+          />
+        </div>
       )}
     </div>
   );
