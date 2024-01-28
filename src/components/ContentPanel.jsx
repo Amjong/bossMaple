@@ -34,14 +34,13 @@ export default function ContentPanel() {
       <TapBtns onChanged={handleChange} tabBtnsArray={contentArray} />
       <div className='mt-10'>
         {!isLoading && starforceInfoArray.length === 0 ? (
-          <div className='text-xl font-bold text-center text-white mt-20 leading-loose'>
-            API KEY 값을 입력 해주세요.
-            <br />
+          <div className='text-xl font-bold text-center text-white mt-20'>
+            API KEY 값을 입력 해주세요.{' '}
             <Link to='/guide' className='text-r2 underline underline-offset-4'>
               API KEY 값 입력 가이드
             </Link>{' '}
-            보러가기 <br />
-            (약 1 ~ 2분 소요)
+            보러가기
+            <div className='font-regular'>(약 1 ~ 2분 소요)</div>
           </div>
         ) : (
           contentArray[menu].component
