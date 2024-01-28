@@ -37,10 +37,7 @@ export default function ContentPanel() {
           <div className='text-[36px] font-bold text-center text-white mt-20 leading-loose'>
             API KEY 값을 입력 해주세요.
             <br />
-            <Link
-              to='/bossMaple/guide'
-              className='text-r2 underline underline-offset-4'
-            >
+            <Link to='/guide' className='text-r2 underline underline-offset-4'>
               API KEY 값 입력 가이드
             </Link>{' '}
             보러가기

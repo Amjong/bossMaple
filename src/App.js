@@ -7,8 +7,8 @@ import Home from './components/page/Home';
 
 const router = createBrowserRouter([
   {
-    path: '/bossMaple',
-    basename: '/bossMaple',
+    path: '/',
+    basename: '/',
     element: <Root />,
     children: [
       {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/bossMaple/guide',
+        path: '/guide',
         element: <Guide />,
       },
     ],

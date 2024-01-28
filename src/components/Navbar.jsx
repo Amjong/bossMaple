@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <header className='flex w-full bg-n1 items-center z-10'>
       <div className='ml-10'>
-        <Link to='/bossMaple'>
+        <Link to='/'>
           <img src={logoSrc} alt='logo' className='w-[126px] h-4/5' />
         </Link>
       </div>
@@ -19,7 +19,7 @@ export default function Navbar() {
             } relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap`}
           >
             <Link
-              to='/bossMaple'
+              to='/'
               className='underline underline-offset-4'
               onClick={() => setMenu(0)}
             >
@@ -32,7 +32,7 @@ export default function Navbar() {
             }relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap`}
           >
             <Link
-              to='/bossMaple/guide'
+              to='/guide'
               className='underline underline-offset-4'
               onClick={() => setMenu(1)}
             >
