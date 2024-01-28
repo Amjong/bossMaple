@@ -3,7 +3,7 @@ export default function TapBtn({ handleClick, isSelected, text }) {
   const font = isSelected ? 'font-bold' : 'font-regular';
   return (
     <div
-      className={`${color} ${font} flex items-center justify-center text-y4 rounded-[10px] w-[243px] h-[78px] text-center whitespace-nowrap cursor-pointer text-xl`}
+      className={`${color} ${font} flex items-center justify-center text-y4 rounded-[10px] w-[243px] h-[78px] text-center whitespace-nowrap cursor-pointer text-xl pt-1`}
       onClick={handleClick}
     >
       {text}
