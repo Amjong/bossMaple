@@ -21,7 +21,7 @@ export default function Guide() {
     setMenu(value);
   };
   return (
-    <div className='flex flex-col bg-n1 h-screen'>
+    <div className='flex flex-col bg-n1'>
       <div className='ml-10 mt-5'>
         <TabBtns onChanged={handleChange} tabBtnsArray={tabBtnsArray} />
       </div>
@@ -41,7 +41,9 @@ export default function Guide() {
         <span></span>
       </div>
 
-      <div className='m-10 bg-n2 h-full'>{tabBtnsArray[menu].component}</div>
+      <div className='m-10 bg-n2 rounded-lg'>
+        {tabBtnsArray[menu].component}
+      </div>
     </div>
   );
 }

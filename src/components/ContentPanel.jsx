@@ -40,7 +40,8 @@ export default function ContentPanel() {
             <Link to='/guide' className='text-r2 underline underline-offset-4'>
               API KEY 값 입력 가이드
             </Link>{' '}
-            보러가기
+            보러가기 <br />
+            (약 1 ~ 2분 소요)
           </div>
         ) : (
           contentArray[menu].component
