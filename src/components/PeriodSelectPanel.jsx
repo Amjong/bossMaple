@@ -50,7 +50,6 @@ export default function PeriodSelectPanel() {
           startDate: date.toISOString().slice(0, 10),
         }));
       }
-      console.log(date);
       setEndDate(date);
       setUserInfo((prev) => ({
         ...prev,

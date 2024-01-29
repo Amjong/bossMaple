@@ -18,7 +18,6 @@ export default function CharacterInfo() {
     }
     getOcidFromNickname(nickname).then((response) => {
       setOcid(response.ocid);
-      console.log(`ocid : ${response.ocid}`);
     });
   }, [nickname]);
 

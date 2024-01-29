@@ -255,8 +255,6 @@ const getRepresentativeCharacter = async (starforceInfoArray) => {
         representativeCharacterInfo['characterImage'] =
           basicInfoResponse.character_image;
         currentLevel = basicInfoResponse.character_level;
-
-        console.log(representativeCharacterInfo);
       }
     } catch (error) {
       // 에러 처리

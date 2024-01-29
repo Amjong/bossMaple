@@ -21,7 +21,6 @@ export default function CharacterInputTableSolo() {
     }
     getOcidFromNickname(nickname).then((response) => {
       setOcid(response.ocid);
-      console.log(`ocid : ${response.ocid}`);
     });
   }, [nickname]);
   return (

@@ -52,8 +52,6 @@ function CheckboxColumnFilter({ column: { filterValue, setFilter } }) {
     setFilter(selectAll ? [] : Array.from({ length: 25 }, (_, i) => i));
     setValues(selectAll ? [] : [0, 1, 2]);
   };
-  console.log(values);
-  console.log(filterValue);
   return (
     <div className='flex flex-col space-y-2'>
       <label>
