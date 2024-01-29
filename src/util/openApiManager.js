@@ -14,7 +14,6 @@ const getStarForceUrl = (count, date, cursor) => {
   if (cursor) {
     starForceUrl += `&cursor=${cursor}`;
   }
-  console.log(starForceUrl);
   return starForceUrl;
 };
 

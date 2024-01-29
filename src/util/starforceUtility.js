@@ -6,7 +6,7 @@ const {
 } = require('./openApiManager');
 
 /* TODO : Save static table for each level&starforceCount to optimizing */
-const calculateCost = (Itemlevel, starforceCount) => {
+const calculateCost = (Itemlevel, starforceCount, date) => {
   let finalCost = 1000;
   if (starforceCount >= 25 || starforceCount < 0) {
     console.log('Invalid starforceCount (' + starforceCount + ')');
@@ -30,6 +30,11 @@ const calculateCost = (Itemlevel, starforceCount) => {
     } else {
       finalCost /= 200;
     }
+  }
+
+  // Apply starforce patch (2024-01-25, 30% discount for 0~14 steps)
+  if (starforceCount < 15 && new Date(date) >= new Date('2024-01-25')) {
+    finalCost *= 0.7;
   }
 
   return Math.round(finalCost / 10) * 10;
@@ -133,7 +138,11 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
     if (itemLevel === undefined) {
       return;
     }
-    let originalCost = calculateCost(itemLevel, element.before_starforce_count);
+    let originalCost = calculateCost(
+      itemLevel,
+      element.before_starforce_count,
+      element.date_create
+    );
 
     currentCost = applyStarforceEventList(
       element.starforce_event_list,
