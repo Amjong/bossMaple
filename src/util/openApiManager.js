@@ -18,6 +18,34 @@ const getStarForceUrl = (count, date, cursor) => {
   return starForceUrl;
 };
 
+const getCharacterBasicInfoUrl = (ocid, date) => {
+  const characterBasicInfoBaseUrl = '/maplestory/v1/character/basic';
+  if (!ocid) {
+    console.log('ocid is required');
+    return undefined;
+  }
+  let characterBasicInfoUrl = openApiBaseUrl + characterBasicInfoBaseUrl + '?';
+  characterBasicInfoUrl += `&ocid=${ocid}`;
+  characterBasicInfoUrl += `&date=${date}`;
+  return characterBasicInfoUrl;
+};
+
+const getCharacterBasicInfo = async (ocid, date) => {
+  const response = await fetch(getCharacterBasicInfoUrl(ocid, date), {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-nxopen-api-key': process.env.REACT_APP_MAPLE_API_KEY,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+
+  return response.json();
+};
+
 const getCharacterStatUrl = (ocid, date) => {
   const characterStatBaseUrl = '/maplestory/v1/character/stat';
   if (!ocid || !date) {
@@ -38,7 +66,6 @@ const getOcidUrl = (nickname) => {
   }
   let ocidUrl = openApiBaseUrl + ocidBaseUrl + '?';
   ocidUrl += `&character_name=${nickname}`;
-  console.log(ocidUrl);
   return ocidUrl;
 };
 
@@ -52,7 +79,7 @@ const getOcidFromNickname = async (nickname) => {
   });
 
   if (!response.ok) {
-    throw new Error(`Network response was not ok: ${response.statusText}`);
+    throw new Error(response.status);
   }
 
   return response.json();
@@ -63,4 +90,5 @@ module.exports = {
   getCharacterStatUrl,
   getOcidUrl,
   getOcidFromNickname,
+  getCharacterBasicInfo,
 };

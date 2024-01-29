@@ -1,5 +1,9 @@
 const { getItemLevelFromTable } = require('../data/itemLevelInfo');
-const { getStarForceUrl } = require('./openApiManager');
+const {
+  getStarForceUrl,
+  getOcidFromNickname,
+  getCharacterBasicInfo,
+} = require('./openApiManager');
 
 /* TODO : Save static table for each level&starforceCount to optimizing */
 const calculateCost = (Itemlevel, starforceCount) => {
@@ -212,6 +216,47 @@ const getStarforceProgressInfo = (starforceInfoArray) => {
   return itemsAndProgressInfo;
 };
 
+const getRepresentativeCharacter = async (starforceInfoArray) => {
+  let characterNameSet = new Set();
+  let mostCurrentDate = new Date(0);
+
+  starforceInfoArray.forEach((element) => {
+    if (!characterNameSet.has(element.character_name)) {
+      characterNameSet.add(element.character_name);
+    }
+    if (mostCurrentDate < new Date(element.date_create)) {
+      mostCurrentDate = new Date(element.date_create);
+    }
+  });
+
+  let representativeCharacterInfo = {};
+  let currentLevel = 0;
+
+  for (const element of characterNameSet) {
+    try {
+      const ocidResponse = await getOcidFromNickname(element);
+      const basicInfoResponse = await getCharacterBasicInfo(
+        ocidResponse.ocid,
+        mostCurrentDate.toISOString().slice(0, 10)
+      );
+      if (currentLevel < basicInfoResponse.character_level) {
+        representativeCharacterInfo['characterName'] = element;
+        representativeCharacterInfo['characterLevel'] =
+          basicInfoResponse.character_level;
+        representativeCharacterInfo['characterImage'] =
+          basicInfoResponse.character_image;
+        currentLevel = basicInfoResponse.character_level;
+
+        console.log(representativeCharacterInfo);
+      }
+    } catch (error) {
+      // 에러 처리
+    }
+  }
+
+  return representativeCharacterInfo;
+};
+
 module.exports = {
   calculateCost,
   getStarForceInfo,
@@ -219,4 +264,5 @@ module.exports = {
   getStarforceResultInfo,
   getStarforceProgressInfo,
   getStarForceInfoByDate,
+  getRepresentativeCharacter,
 };
