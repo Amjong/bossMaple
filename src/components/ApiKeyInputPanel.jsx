@@ -3,7 +3,10 @@ import StarTextArea from './ui/StarTextArea';
 import { MasterPrimaryButton } from './ui/MasterPrimaryButton';
 import { useStarforceInfoArray } from '../context/starforceInfoContext';
 import { useUserInfo } from '../context/userInfoContext';
-import { getStarForceInfoByDate } from '../util/starforceUtility';
+import {
+  getRepresentativeCharacter,
+  getStarForceInfoByDate,
+} from '../util/starforceUtility';
 import { useLoading } from '../context/loadingContext';
 import { useContentError } from '../context/contentErrorContext';
 
@@ -38,17 +41,42 @@ export default function ApiKeyInputPanel() {
           setErrorText(
             '하루 검색 제한량이 초과되었습니다. API KEY 타입을 서비스 단계로 등록하고 다시 시도해주세요.'
           );
+          setIsLoading(false);
           return;
         } else if (error.message === '400' || error.message === '403') {
           setErrorText('API KEY 값이 올바른지 확인 후 다시 시도해주세요.');
+          setIsLoading(false);
           return;
         } else if (error.message === '500') {
           setErrorText(
             'Nexon API 서버에 오류가 발생했습니다. 나중에 다시 시도해주세요.'
           );
+          setIsLoading(false);
           return;
         }
       }
+
+      if (receivedArray.length === 0) {
+        setErrorText(
+          '2023-12-27 부터의 데이터만 조회할 수 있습니다. 설정하신 기간에 데이터가 존재하지 않습니다. 기간을 다시 설정해주세요.'
+        );
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const characterInfo = await getRepresentativeCharacter(receivedArray);
+        setUserInfo((prev) => ({
+          ...prev,
+          characterName: characterInfo.characterName,
+          characterLevel: characterInfo.characterLevel,
+          characterImage: characterInfo.characterImage,
+        }));
+      } catch (error) {
+        console.log(error);
+        // do nothing
+      }
+
       setStarforceInfoArray(() => {
         return Array.from(receivedArray);
       });
