@@ -7,6 +7,7 @@ export default function TapBtns({ onChanged, tabBtnsArray }) {
       {tabBtnsArray?.map(({ text }, index) => {
         return (
           <TapBtn
+            key={text}
             handleClick={() => {
               setSelectedValue(index);
               onChanged(index);

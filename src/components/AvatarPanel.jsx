@@ -7,13 +7,11 @@ export default function AvatarPanel() {
       <img
         src={defaultCharacterSrc}
         alt='avatar'
-        className='absolute bottom-5'
-        width='396px'
-        height='396px'
+        className='absolute w-full h-full object-cover bottom-10'
       />
       <div className='absolute flex gap-5 bottom-5'>
-        <MasterBadge text='$레벨$' />
-        <MasterBadge text='$닉네임$' />
+        <MasterBadge text='Lv. 300' />
+        <MasterBadge text='단풍별' />
       </div>
     </div>
   );

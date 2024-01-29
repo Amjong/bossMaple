@@ -52,7 +52,7 @@ export default function Home() {
                   label='searchArea'
                   className='flex bg-custom bg-fixed bg-cover w-full pb-5'
                 >
-                  <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
+                  <div className='pt-10 pl-10 pr-10 min-w-[400px] sm:block hidden ml-10'>
                     <AvatarPanel />
                   </div>
                   <div className='flex flex-col mt-10 w-full'>
