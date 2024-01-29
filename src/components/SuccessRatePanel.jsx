@@ -7,6 +7,7 @@ import StarIcon from '@mui/icons-material/Star';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { getStarforceResultInfo } from '../util/starforceUtility';
 import { useContentError } from '../context/contentErrorContext';
+import MasterToolTip from './ui/MasterToolTip';
 
 const fillRangeInArray = (array, start, end) => {
   // Generate an array of numbers within the given range
@@ -241,66 +242,79 @@ export default function SuccessRatePanel() {
     <div>
       {errorText === '' && isLoading && <TableSkeleton />}
       {errorText === '' && !isLoading && starforceInfoArray.length !== 0 && (
-        <Table
-          columns={columns}
-          data={getStarforceResultInfo(starforceInfoArray).map(
-            (element, index) => {
-              return {
-                step: (
-                  <span>
-                    <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
-                    {index} {' > '}
-                    <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
-                    {index + 1}
-                  </span>
-                ),
-                try: (
-                  <span>
-                    <span className='font-bold'>
-                      {element[0] + element[1]}회
+        <div>
+          <div className='mb-20 mt-20'>
+            <MasterToolTip
+              text='130레벨 이상의 아이템만 지원합니다.
+              슈페리얼 아이템은 현재 미지원 입니다. (추후 추가 예정)
+              이외 일부 아이템은 지원하지 않을 수 있습니다. (제보 감사합니다.)'
+              placement='bottom-end'
+            />
+          </div>
+          <Table
+            columns={columns}
+            data={getStarforceResultInfo(starforceInfoArray).map(
+              (element, index) => {
+                return {
+                  step: (
+                    <span>
+                      <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
+                      {index} {' > '}
+                      <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
+                      {index + 1}
                     </span>
+                  ),
+                  try: (
+                    <span>
+                      <span className='font-bold'>
+                        {element[0] + element[1]}회
+                      </span>
 
-                    <br />
-                    <span className='font-regular'>
-                      {'('}
-                      {element[0]}
-                      {'/'}
-                      {element[1]}
-                      {')'}
-                    </span>
-                  </span>
-                ),
-                success: (
-                  <span className='font-bold'>
-                    {`${element[2]}회 / ${element[5]}회`}
-                    <br />
-                    {element[2] !== 0 && element[5] !== 0 && (
+                      <br />
                       <span className='font-regular'>
-                        {'('}기댓값보다{' '}
-                        {element[2] > element[5] ? (
-                          <span className='text-y4'>
-                            {`${((element[2] / element[5]) * 100).toFixed(0)}%`}{' '}
-                            높습니다.
-                          </span>
-                        ) : (
-                          <span className='text-r3'>
-                            {`${
-                              100 - ((element[2] / element[5]) * 100).toFixed(0)
-                            }%`}{' '}
-                            낮습니다.
-                          </span>
-                        )}
+                        {'('}
+                        {element[0]}
+                        {'/'}
+                        {element[1]}
                         {')'}
                       </span>
-                    )}
-                  </span>
-                ),
-                failure: `${element[3]}회`,
-                destroy: `${element[4]}회`,
-              };
-            }
-          )}
-        />
+                    </span>
+                  ),
+                  success: (
+                    <span className='font-bold'>
+                      {`${element[2]}회 / ${element[5]}회`}
+                      <br />
+                      {element[2] !== 0 && element[5] !== 0 && (
+                        <span className='font-regular'>
+                          {'('}기댓값보다{' '}
+                          {element[2] > element[5] ? (
+                            <span className='text-y4'>
+                              {`${((element[2] / element[5]) * 100).toFixed(
+                                0
+                              )}%`}{' '}
+                              높습니다.
+                            </span>
+                          ) : (
+                            <span className='text-r3'>
+                              {`${
+                                100 -
+                                ((element[2] / element[5]) * 100).toFixed(0)
+                              }%`}{' '}
+                              낮습니다.
+                            </span>
+                          )}
+                          {')'}
+                        </span>
+                      )}
+                    </span>
+                  ),
+                  failure: `${element[3]}회`,
+                  destroy: `${element[4]}회`,
+                };
+              }
+            )}
+          />
+        </div>
       )}
     </div>
   );

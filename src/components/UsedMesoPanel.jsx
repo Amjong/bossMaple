@@ -7,6 +7,7 @@ import { useLoading } from '../context/loadingContext';
 import { Skeleton } from '@mui/material';
 import { useUserInfo } from '../context/userInfoContext';
 import { useContentError } from '../context/contentErrorContext';
+import MasterToolTip from './ui/MasterToolTip';
 
 const formatNumberToKorean = (num) => {
   const units = ['', '만', '억', '조'];
@@ -231,7 +232,15 @@ export default function UsedMesoPanel() {
       {errorText === '' && isLoading && <TableSkeleton />}
       {errorText === '' && !isLoading && itemsAndCost && (
         <div>
-          <div className='mb-10 mt-10 text-[24px]'>
+          <div className='mb-10 mt-10 text-[24px] flex'>
+            <span className='mr-2'>
+              <MasterToolTip
+                text='130레벨 이상의 아이템만 지원합니다.
+              슈페리얼 아이템은 현재 미지원 입니다. (추후 추가 예정)
+              이외 일부 아이템은 지원하지 않을 수 있습니다. (제보 감사합니다.)'
+                placement='bottom-end'
+              />
+            </span>
             <span className='text-white font-bold'>{`${userInfo?.finalStartDate} `}</span>
             <span className='font-regular text-white'>부터 </span>
             <span className='text-white font-bold'>{`${userInfo?.finalEndDate} `}</span>
