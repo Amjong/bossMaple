@@ -14,7 +14,9 @@ export default function AvatarPanel() {
         }
         alt='avatar'
         className={`absolute w-full h-full object-contain ${
-          userInfo.characterImage ? 'scale-[0.6] bottom-5' : 'bottom-10'
+          userInfo.characterImage
+            ? 'scale-[0.6] bottom-5'
+            : 'scale-[1.5] bottom-10'
         }`}
       />
       <div className='absolute flex gap-5 bottom-5'>
