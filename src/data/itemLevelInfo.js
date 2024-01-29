@@ -310,7 +310,7 @@ itemLevelTable['매커네이터 펜던트'] = 120;
 itemLevelTable['도미네이터 펜던트'] = 140;
 itemLevelTable['골든 클로버 벨트'] = 140;
 itemLevelTable['분노한 자쿰의 벨트'] = 150;
-itemLevelTable['로얄 블랙메탈 숄더'] = 110;
+itemLevelTable['로얄 블랙메탈 숄더'] = 120;
 
 // 펜살
 itemLevelTable['펜살리르 메이지로브'] = 140;
@@ -343,12 +343,166 @@ itemLevelTable['펜살리르 체이서아머'] = 140;
 itemLevelTable['펜살리르 체이서케이프'] = 140;
 itemLevelTable['펜살리르 체이서햇'] = 140;
 
+itemLevelTable['우트가르드 ESP리미터'] = 140;
+itemLevelTable['우트가르드 가즈'] = 140;
+itemLevelTable['우트가르드 거선'] = 140;
+itemLevelTable['우트가르드 대거'] = 140;
+itemLevelTable['우트가르드 데스페라도'] = 140;
+itemLevelTable['우트가르드 듀얼보우건'] = 140;
+itemLevelTable['우트가르드 드래곤소울'] = 140;
+itemLevelTable['우트가르드 리스트레인트'] = 140;
+itemLevelTable['우트가르드 매직 건틀렛'] = 140;
+itemLevelTable['우트가르드 보우'] = 140;
+itemLevelTable['우트가르드 브레스 슈터'] = 140;
+itemLevelTable['우트가르드 블레이드'] = 140;
+itemLevelTable['우트가르드 샤이닝로드'] = 140;
+itemLevelTable['우트가르드 세이버'] = 140;
+itemLevelTable['우트가르드 세투스'] = 140;
+itemLevelTable['우트가르드 스태프'] = 140;
+itemLevelTable['우트가르드 스피어'] = 140;
+itemLevelTable['우트가르드 시즈건'] = 140;
+itemLevelTable['우트가르드 에너지체인'] = 140;
+itemLevelTable['우트가르드 에인션트 보우'] = 140;
+itemLevelTable['우트가르드 엑스'] = 140;
+itemLevelTable['우트가르드 완드'] = 140;
+itemLevelTable['우트가르드 체인'] = 140;
+itemLevelTable['우트가르드 케인'] = 140;
+itemLevelTable['우트가르드 크로스보우'] = 140;
+itemLevelTable['우트가르드 클로'] = 140;
+itemLevelTable['우트가르드 투핸드소드'] = 140;
+itemLevelTable['우트가르드 투핸드해머'] = 140;
+itemLevelTable['우트가르드 피스톨'] = 140;
+itemLevelTable['우트가르드 해머'] = 140;
+itemLevelTable['우트가르드 에인션트 보우'] = 140;
+itemLevelTable['우트가르드 투핸드엑스'] = 140;
+itemLevelTable['우트가르드 핼버드'] = 140;
+itemLevelTable['우트가르드 흐림두르스'] = 140;
+
+// 무스펠
+
+itemLevelTable['무스펠 워리어햇'] = 130;
+itemLevelTable['무스펠 워리어슈트'] = 130;
+itemLevelTable['무스펠 워리어슈즈'] = 130;
+itemLevelTable['무스펠 워리어글러브'] = 130;
+
+itemLevelTable['무스펠 매지션햇'] = 130;
+itemLevelTable['무스펠 매지션슈트'] = 130;
+itemLevelTable['무스펠 매지션슈즈'] = 130;
+itemLevelTable['무스펠 매지션글러브'] = 130;
+
+itemLevelTable['무스펠 아처햇'] = 130;
+itemLevelTable['무스펠 아처슈트'] = 130;
+itemLevelTable['무스펠 아처슈즈'] = 130;
+itemLevelTable['무스펠 아처글러브'] = 130;
+
+itemLevelTable['무스펠 로그햇'] = 130;
+itemLevelTable['무스펠 로그슈트'] = 130;
+itemLevelTable['무스펠 로그슈즈'] = 130;
+itemLevelTable['무스펠 로그글러브'] = 130;
+
+itemLevelTable['무스펠 파이렛햇'] = 130;
+itemLevelTable['무스펠 파이렛슈트'] = 130;
+itemLevelTable['무스펠 파이렛슈즈'] = 130;
+itemLevelTable['무스펠 파이렛글러브'] = 130;
+
+itemLevelTable['쟈이힌 ESP리미터'] = 130;
+itemLevelTable['쟈이힌 가즈'] = 130;
+itemLevelTable['쟈이힌 대거'] = 130;
+itemLevelTable['쟈이힌 데스페라도'] = 130;
+itemLevelTable['쟈이힌 듀얼보우건'] = 130;
+itemLevelTable['쟈이힌 드래곤소울'] = 130;
+itemLevelTable['쟈이힌 로열티'] = 130;
+itemLevelTable['쟈이힌 루퍼스'] = 130;
+itemLevelTable['쟈이힌 매직 건틀렛'] = 130;
+itemLevelTable['쟈이힌 보우'] = 130;
+itemLevelTable['쟈이힌 브레스 슈터'] = 130;
+itemLevelTable['쟈이힌 블레이드'] = 130;
+itemLevelTable['쟈이힌 샤이닝로드'] = 130;
+itemLevelTable['쟈이힌 세이버'] = 130;
+itemLevelTable['쟈이힌 스태프'] = 130;
+itemLevelTable['쟈이힌 스피어'] = 130;
+itemLevelTable['쟈이힌 시즈건'] = 130;
+itemLevelTable['쟈이힌 에너지체인'] = 130;
+itemLevelTable['쟈이힌 에인션트 보우'] = 130;
+itemLevelTable['쟈이힌 엑스'] = 130;
+itemLevelTable['쟈이힌 예거'] = 130;
+itemLevelTable['쟈이힌 완드'] = 130;
+itemLevelTable['쟈이힌 위선'] = 130;
+itemLevelTable['쟈이힌 체인'] = 130;
+itemLevelTable['쟈이힌 케인'] = 130;
+itemLevelTable['쟈이힌 크로스보우'] = 130;
+itemLevelTable['쟈이힌 클로'] = 130;
+itemLevelTable['쟈이힌 투핸드소드'] = 130;
+itemLevelTable['쟈이힌 투핸드엑스'] = 130;
+itemLevelTable['쟈이힌 투핸드해머'] = 130;
+itemLevelTable['쟈이힌 피스톨'] = 130;
+itemLevelTable['쟈이힌 핼버드'] = 130;
+itemLevelTable['쟈이힌 해머'] = 130;
+
+// 반레온
+
+itemLevelTable['로얄 반 레온 세이버'] = 130;
+itemLevelTable['로얄 반 레온 스워드'] = 130;
+itemLevelTable['로얄 반 레온 엑스'] = 130;
+itemLevelTable['로얄 반 레온 해머'] = 130;
+itemLevelTable['로얄 반 레온 투핸드엑스'] = 130;
+itemLevelTable['로얄 반 레온 투핸드해머'] = 130;
+itemLevelTable['로얄 반 레온 스피어'] = 130;
+itemLevelTable['로얄 반 레온 핼버드'] = 130;
+itemLevelTable['로얄 반 레온 플러드퓨리'] = 130;
+itemLevelTable['로얄 반 레온 이미르'] = 130;
+itemLevelTable['로얄 반 레온 로열티'] = 130;
+itemLevelTable['로얄 반 레온 완드'] = 130;
+itemLevelTable['로얄 반 레온 스태프'] = 130;
+itemLevelTable['로얄 반 레온 글로리어'] = 130;
+itemLevelTable['로얄 반 레온 ESP리미터'] = 130;
+itemLevelTable['로얄 반 레온 매직 건틀렛'] = 130;
+itemLevelTable['로얄 반 레온 보우'] = 130;
+itemLevelTable['로얄 반 레온 크로스보우'] = 130;
+itemLevelTable['로얄 반 레온 듀얼보우건'] = 130;
+itemLevelTable['로얄 반 레온 에인션트 보우'] = 130;
+itemLevelTable['로얄 반 레온 브레스 슈터'] = 130;
+itemLevelTable['로얄 반 레온 대거'] = 130;
+itemLevelTable['로얄 반 레온 가즈'] = 130;
+itemLevelTable['로얄 반 레온 케인'] = 130;
+itemLevelTable['로얄 반 레온 체인'] = 130;
+itemLevelTable['로얄 반 레온 호선'] = 130;
+itemLevelTable['로얄 반 레온 피스톨'] = 130;
+itemLevelTable['로얄 반 레온 클로'] = 130;
+itemLevelTable['로얄 반 레온 시즈건'] = 130;
+itemLevelTable['로얄 반 레온 화이트웜'] = 130;
+itemLevelTable['로얄 반 레온 에너지체인'] = 130;
+itemLevelTable['로얄 반 레온 워리어헬름'] = 130;
+itemLevelTable['로얄 반 레온 워리어슈트'] = 130;
+itemLevelTable['로얄 반 레온 워리어부츠'] = 130;
+itemLevelTable['로얄 반 레온 워리어핸드'] = 130;
+itemLevelTable['로얄 반 레온 워리어케이프'] = 130;
+itemLevelTable['로얄 반 레온 메이지헬름'] = 130;
+itemLevelTable['로얄 반 레온 메이지슈트'] = 130;
+itemLevelTable['로얄 반 레온 메이지부츠'] = 130;
+itemLevelTable['로얄 반 레온 메이지핸드'] = 130;
+itemLevelTable['로얄 반 레온 메이지케이프'] = 130;
+itemLevelTable['로얄 반 레온 센티널헬름'] = 130;
+itemLevelTable['로얄 반 레온 센티널슈트'] = 130;
+itemLevelTable['로얄 반 레온 센티널부츠'] = 130;
+itemLevelTable['로얄 반 레온 센티널핸드'] = 130;
+itemLevelTable['로얄 반 레온 센티널케이프'] = 130;
+itemLevelTable['로얄 반 레온 체이서헬름'] = 130;
+itemLevelTable['로얄 반 레온 체이서슈트'] = 130;
+itemLevelTable['로얄 반 레온 체이서부츠'] = 130;
+itemLevelTable['로얄 반 레온 체이서핸드'] = 130;
+itemLevelTable['로얄 반 레온 체이서케이프'] = 130;
+itemLevelTable['로얄 반 레온 스키퍼헬름'] = 130;
+itemLevelTable['로얄 반 레온 스키퍼슈트'] = 130;
+itemLevelTable['로얄 반 레온 스키퍼부츠'] = 130;
+itemLevelTable['로얄 반 레온 스키퍼핸드'] = 130;
+itemLevelTable['로얄 반 레온 스키퍼케이프'] = 130;
+
 // 마이스터
 
 itemLevelTable['마이스터링'] = 140;
 itemLevelTable['마이스터 이어링'] = 140;
 itemLevelTable['마이스터 숄더'] = 140;
-itemLevelTable['마이스터링'] = 140;
 
 // 라이징 썬
 
@@ -356,7 +510,6 @@ itemLevelTable['라이징 썬 펜던트'] = 130;
 
 // 기타 악세서리
 
-itemLevelTable['레드 아처 마이스터 심볼'] = 100;
 itemLevelTable['샤이니 레드 아처 마이스터 심볼'] = 130;
 itemLevelTable['샤이니 레드 파이렛 마이스터 심볼'] = 130;
 itemLevelTable['샤이니 레드 매지션 마이스터 심볼'] = 130;
@@ -375,16 +528,21 @@ itemLevelTable['지혜의 익스트림 벨트'] = 130;
 itemLevelTable['행운의 익스트림 벨트'] = 130;
 
 itemLevelTable['날카로운 샤이니 로얄 마이스터 숄더'] = 130;
+itemLevelTable['강인함의 샤이니 로얄 마이스터 숄더'] = 130;
+itemLevelTable['지혜의 샤이니 로얄 마이스터 숄더'] = 130;
+itemLevelTable['행운의 샤이니 로얄 마이스터 숄더'] = 130;
 itemLevelTable['앤티크 루트 숄더'] = 150;
+itemLevelTable['앤티크 루트 글러브'] = 150;
+itemLevelTable['앤티크 루트 부츠'] = 150;
 itemLevelTable['앤티크 리프 숄더'] = 130;
 
-// 슈페리얼
+// 슈페리얼 : 추후 지원
 
-itemLevelTable['타일런트 리카온 벨트'] = 150;
-itemLevelTable['타일런트 알테어 벨트'] = 150;
-itemLevelTable['타일런트 케이론 벨트'] = 150;
-itemLevelTable['타일런트 헤르메스 벨트'] = 150;
-itemLevelTable['타일런트 히아데스 벨트'] = 140;
+// itemLevelTable['타일런트 리카온 벨트'] = 150;
+// itemLevelTable['타일런트 알테어 벨트'] = 150;
+// itemLevelTable['타일런트 케이론 벨트'] = 150;
+// itemLevelTable['타일런트 헤르메스 벨트'] = 150;
+// itemLevelTable['타일런트 히아데스 벨트'] = 140;
 
 const getItemLevelFromTable = (name) => {
   return itemLevelTable[name];
