@@ -232,27 +232,31 @@ export default function UsedMesoPanel() {
       {errorText === '' && isLoading && <TableSkeleton />}
       {errorText === '' && !isLoading && itemsAndCost && (
         <div>
-          <div className='mb-10 mt-10 text-[24px] flex'>
-            <span className='mr-2'>
+          <div className='mb-10 mt-10 text-[24px] flex flex-col'>
+            <span className='mr-2 flex gap-2 items-center'>
               <MasterToolTip
                 text='130레벨 이상의 아이템만 지원합니다.
-              슈페리얼 아이템은 현재 미지원 입니다. (추후 추가 예정)
-              이외 일부 아이템은 지원하지 않을 수 있습니다. (제보 감사합니다.)'
+              슈페리얼 아이템은 현재 미지원 입니다.
+              이외 일부 아이템은 지원하지 않을 수 있습니다.'
                 placement='bottom-end'
               />
+              <span className='text-y4 font-bold text-[20px]'>유의사항</span>
             </span>
-            <span className='text-white font-bold'>{`${userInfo?.finalStartDate} `}</span>
-            <span className='font-regular text-white'>부터 </span>
-            <span className='text-white font-bold'>{`${userInfo?.finalEndDate} `}</span>
-            <span className='font-regular text-white'>
-              까지 사용한 총 메소는{' '}
-            </span>
-            <span className='text-y4 font-bold'>
-              {`${itemsAndCost
-                .reduce((c, cv) => c + cv[1], 0)
-                .toLocaleString()} `}
-            </span>
-            <span className='font-regular text-white'>메소 입니다.</span>
+            <div>
+              <span className='text-white font-bold'>{`${userInfo?.finalStartDate}`}</span>
+              <span className='font-regular text-white'> 부터 </span>
+              <span className='text-white font-bold'>{`${userInfo?.finalEndDate}`}</span>
+              <span className='font-regular text-white'>
+                {' '}
+                까지 사용한 총 메소는{' '}
+              </span>
+              <span className='text-y4 font-bold'>
+                {`${itemsAndCost
+                  .reduce((c, cv) => c + cv[1], 0)
+                  .toLocaleString()} `}
+              </span>
+              <span className='font-regular text-white'>메소 입니다.</span>
+            </div>
           </div>
 
           <Table

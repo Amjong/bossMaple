@@ -244,12 +244,15 @@ export default function SuccessRatePanel() {
       {errorText === '' && !isLoading && starforceInfoArray.length !== 0 && (
         <div>
           <div className='mb-20 mt-20'>
-            <MasterToolTip
-              text='130레벨 이상의 아이템만 지원합니다.
-              슈페리얼 아이템은 현재 미지원 입니다. (추후 추가 예정)
-              이외 일부 아이템은 지원하지 않을 수 있습니다. (제보 감사합니다.)'
-              placement='bottom-end'
-            />
+            <span className='mr-2 flex gap-2 items-center'>
+              <MasterToolTip
+                text='130레벨 이상의 아이템만 지원합니다.
+              슈페리얼 아이템은 현재 미지원 입니다.
+              이외 일부 아이템은 지원하지 않을 수 있습니다.'
+                placement='bottom-end'
+              />
+              <span className='text-y4 font-bold text-[20px]'>유의사항</span>
+            </span>
           </div>
           <Table
             columns={columns}
