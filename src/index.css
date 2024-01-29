@@ -50,6 +50,10 @@ body {
       color: #ffffff;
     }
 
+    .react-datepicker__day--disabled {
+      color: gray;
+    }
+
     .react-datepicker__day--today {
       color: #ffffff;
       border: none;
