@@ -5,6 +5,7 @@ import { useStarforceInfoArray } from '../context/starforceInfoContext';
 import { useUserInfo } from '../context/userInfoContext';
 import { getStarForceInfoByDate } from '../util/starforceUtility';
 import { useLoading } from '../context/loadingContext';
+import { useContentError } from '../context/contentErrorContext';
 
 export default function ApiKeyInputPanel() {
   const [text, setText] = useState(localStorage.getItem('apiKey') || '');
@@ -15,22 +16,39 @@ export default function ApiKeyInputPanel() {
   const [userInfo, setUserInfo] = useUserInfo();
   const [starforceInfoArray, setStarforceInfoArray] = useStarforceInfoArray();
   const [isLoading, setIsLoading] = useLoading();
+  const [errorText, setErrorText] = useContentError();
   const onClickSubmit = useCallback(
     async (value) => {
       if (value === undefined || value === '') {
         alert('API Key 값을 입력해주세요!');
         return;
       }
-
       localStorage.setItem('apiKey', value);
-      /* TODO 2) fetching starforce info */
       setIsLoading(true);
-      const receivedArray = await getStarForceInfoByDate(
-        value,
-        userInfo.startDate,
-        userInfo.endDate
-      );
-      console.log(receivedArray);
+      setErrorText('');
+      let receivedArray = [];
+      try {
+        receivedArray = await getStarForceInfoByDate(
+          value,
+          userInfo.startDate,
+          userInfo.endDate
+        );
+      } catch (error) {
+        if (error.message === '429') {
+          setErrorText(
+            '하루 검색 제한량이 초과되었습니다. API KEY 타입을 서비스 단계로 등록하고 다시 시도해주세요.'
+          );
+          return;
+        } else if (error.message === '400' || error.message === '403') {
+          setErrorText('API KEY 값이 올바른지 확인 후 다시 시도해주세요.');
+          return;
+        } else if (error.message === '500') {
+          setErrorText(
+            'Nexon API 서버에 오류가 발생했습니다. 나중에 다시 시도해주세요.'
+          );
+          return;
+        }
+      }
       setStarforceInfoArray(() => {
         return Array.from(receivedArray);
       });

@@ -8,6 +8,7 @@ import { UserInfoProvider } from '../../context/userInfoContext';
 import { LoadingProvider } from '../../context/loadingContext';
 import UpBtn from '../ui/UpBtn';
 import { useEffect, useState } from 'react';
+import { ContentErrorProvider } from '../../context/contentErrorContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,34 +47,36 @@ export default function Home() {
         <UserInfoProvider>
           <div className='flex flex-col h-full'>
             <LoadingProvider>
-              <section
-                label='searchArea'
-                className='flex bg-custom bg-fixed bg-cover w-full pb-5'
-              >
-                <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
-                  <AvatarPanel />
-                </div>
-                <div className='flex flex-col mt-10 w-full'>
-                  <ApiKeyInputPanel />
-                  <PeriodSelectPanel />
-                </div>
-              </section>
-              <section
-                label='contentArea'
-                className='overflow-y-auto bg-n1 h-full w-full flex flex-col '
-              >
-                <div className='px-[80px] py-[36.96px] h-[1500px] w-full'>
-                  <ContentPanel />
-                </div>
-              </section>
-              {isVisible && (
-                <div
-                  className='fixed bottom-[100px] right-[35px]'
-                  onClick={scrollToTop}
+              <ContentErrorProvider>
+                <section
+                  label='searchArea'
+                  className='flex bg-custom bg-fixed bg-cover w-full pb-5'
                 >
-                  <UpBtn />
-                </div>
-              )}
+                  <div className='p-10 min-w-[400px] sm:block hidden ml-10'>
+                    <AvatarPanel />
+                  </div>
+                  <div className='flex flex-col mt-10 w-full'>
+                    <ApiKeyInputPanel />
+                    <PeriodSelectPanel />
+                  </div>
+                </section>
+                <section
+                  label='contentArea'
+                  className='overflow-y-auto bg-n1 h-full w-full flex flex-col '
+                >
+                  <div className='px-[80px] py-[36.96px] h-[1500px] w-full'>
+                    <ContentPanel />
+                  </div>
+                </section>
+                {isVisible && (
+                  <div
+                    className='fixed bottom-[100px] right-[35px]'
+                    onClick={scrollToTop}
+                  >
+                    <UpBtn />
+                  </div>
+                )}
+              </ContentErrorProvider>
             </LoadingProvider>
           </div>
         </UserInfoProvider>

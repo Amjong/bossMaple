@@ -6,6 +6,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { useLoading } from '../context/loadingContext';
 import { Skeleton } from '@mui/material';
 import { useUserInfo } from '../context/userInfoContext';
+import { useContentError } from '../context/contentErrorContext';
 
 const formatNumberToKorean = (num) => {
   const units = ['', '만', '억', '조'];
@@ -200,6 +201,7 @@ export default function UsedMesoPanel() {
   const [starforceInfoArray] = useStarforceInfoArray();
   const [userInfo] = useUserInfo();
   const [isLoading] = useLoading();
+  const [errorText] = useContentError();
   const columns = useMemo(
     () => [
       {
@@ -226,8 +228,8 @@ export default function UsedMesoPanel() {
 
   return (
     <div>
-      {isLoading && <TableSkeleton />}
-      {!isLoading && itemsAndCost && (
+      {errorText === '' && isLoading && <TableSkeleton />}
+      {errorText === '' && !isLoading && itemsAndCost && (
         <div>
           <div className='mb-10 mt-10 text-[24px]'>
             <span className='text-white font-bold'>{`${userInfo?.finalStartDate} `}</span>

@@ -6,6 +6,7 @@ import { useLoading } from '../context/loadingContext';
 import StarIcon from '@mui/icons-material/Star';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { getStarforceResultInfo } from '../util/starforceUtility';
+import { useContentError } from '../context/contentErrorContext';
 
 const fillRangeInArray = (array, start, end) => {
   // Generate an array of numbers within the given range
@@ -201,6 +202,7 @@ const TableSkeleton = () => {
 export default function SuccessRatePanel() {
   const [starforceInfoArray] = useStarforceInfoArray();
   const [isLoading] = useLoading();
+  const [errorText] = useContentError();
   const columns = useMemo(
     () => [
       {
@@ -239,8 +241,8 @@ export default function SuccessRatePanel() {
 
   return (
     <div>
-      {isLoading && <TableSkeleton />}
-      {!isLoading && starforceInfoArray.length !== 0 && (
+      {errorText === '' && isLoading && <TableSkeleton />}
+      {errorText === '' && !isLoading && starforceInfoArray.length !== 0 && (
         <Table
           columns={columns}
           data={getStarforceResultInfo(starforceInfoArray).map(
