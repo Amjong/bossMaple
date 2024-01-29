@@ -12,7 +12,7 @@ const getMonth = (date) => {
 };
 
 const YEARS = Array.from(
-  { length: getYear(new Date()) + 1 - 2000 },
+  { length: getYear(new Date()) + 1 - 2023 },
   (_, i) => getYear(new Date()) - i
 );
 const MONTHS = [
