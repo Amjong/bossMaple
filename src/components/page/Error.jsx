@@ -11,8 +11,9 @@ export default function Error() {
         width={300}
         height={300}
       />
-      <div className='font-bold text-xl text-y4'>
-        죄송합니다. 페이지를 찾을 수 없습니다.
+      <div className='font-bold text-xl text-y4 text-center'>
+        페이지를 찾을 수 없거나, 치명적인 오류가 발생했습니다. <br />
+        불편을 드려 죄송합니다.
       </div>
       <div className='ml-10 mt-5 mb-20 text-white'>
         <span className='font-bold'>
@@ -20,7 +21,8 @@ export default function Error() {
           <br />
         </span>
         <span className='font-regular text-[12px]'>
-          서비스 관련 궁금증, 건의사항이 생기면 언제든지 연락해주세요! <br />
+          서비스 관련 건의사항이나, 불편사항이 있으실 때 언제든지 연락해주세요!{' '}
+          <br />
           <br />
         </span>
         <MailOutlineIcon />{' '}
