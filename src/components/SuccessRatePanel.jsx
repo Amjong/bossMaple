@@ -10,6 +10,7 @@ import { useContentError } from '../context/contentErrorContext';
 import MasterToolTip from './ui/MasterToolTip';
 import { useCapture } from '../service/hooks/useCapture';
 import { MasterPrimaryButton } from './ui/MasterPrimaryButton';
+import MasterSnackBar from './ui/MasterSnackBar';
 
 const fillRangeInArray = (array, start, end) => {
   // Generate an array of numbers within the given range
@@ -206,6 +207,7 @@ export default function SuccessRatePanel() {
   const [errorText] = useContentError();
   const tableRef = useRef(null);
   const capture = useCapture(tableRef);
+  const [isSnackBarOpen, setIsSnackBarOpen] = useState(false);
   const columns = useMemo(
     () => [
       {
@@ -260,7 +262,10 @@ export default function SuccessRatePanel() {
             <MasterPrimaryButton
               text='이미지 복사'
               color='r2'
-              onClick={() => capture(tableRef.current)}
+              onClick={() => {
+                capture(tableRef.current);
+                setIsSnackBarOpen(true);
+              }}
             />
           </div>
           <div ref={tableRef}>
@@ -328,6 +333,11 @@ export default function SuccessRatePanel() {
               )}
             />
           </div>
+          <MasterSnackBar
+            open={isSnackBarOpen}
+            onClose={() => setIsSnackBarOpen(false)}
+            message='클립보드에 복사되었습니다.'
+          />
         </div>
       )}
     </div>
