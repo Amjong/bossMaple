@@ -1,8 +1,7 @@
-import { useCallback } from 'react';
 import { toPng } from 'html-to-image';
 
 export const useCapture = (ref) => {
-  const capture = useCallback(async () => {
+  const capture = async () => {
     if (ref.current) {
       const dataUrl = await toPng(ref.current);
 
@@ -15,7 +14,7 @@ export const useCapture = (ref) => {
         }),
       ]);
     }
-  }, []);
+  };
 
   return capture;
 };
