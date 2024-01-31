@@ -1,5 +1,5 @@
 import { Skeleton } from '@mui/material';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useFilters, useTable } from 'react-table';
 import { useStarforceInfoArray } from '../context/starforceInfoContext';
 import { useLoading } from '../context/loadingContext';
@@ -8,6 +8,8 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { getStarforceResultInfo } from '../util/starforceUtility';
 import { useContentError } from '../context/contentErrorContext';
 import MasterToolTip from './ui/MasterToolTip';
+import { useCapture } from '../service/hooks/useCapture';
+import { MasterPrimaryButton } from './ui/MasterPrimaryButton';
 
 const fillRangeInArray = (array, start, end) => {
   // Generate an array of numbers within the given range
@@ -202,6 +204,8 @@ export default function SuccessRatePanel() {
   const [starforceInfoArray] = useStarforceInfoArray();
   const [isLoading] = useLoading();
   const [errorText] = useContentError();
+  const tableRef = useRef(null);
+  const capture = useCapture(tableRef);
   const columns = useMemo(
     () => [
       {
@@ -243,7 +247,7 @@ export default function SuccessRatePanel() {
       {errorText === '' && isLoading && <TableSkeleton />}
       {errorText === '' && !isLoading && starforceInfoArray.length !== 0 && (
         <div>
-          <div className='mb-20 mt-20'>
+          <div className='mb-5 mt-20 flex justify-between'>
             <span className='mr-2 flex gap-2 items-center'>
               <MasterToolTip
                 text='130레벨 이상의 아이템만 지원합니다.
@@ -253,70 +257,77 @@ export default function SuccessRatePanel() {
               />
               <span className='text-y4 font-bold text-[20px]'>유의사항</span>
             </span>
+            <MasterPrimaryButton
+              text='이미지 복사'
+              color='r2'
+              onClick={() => capture(tableRef.current)}
+            />
           </div>
-          <Table
-            columns={columns}
-            data={getStarforceResultInfo(starforceInfoArray).map(
-              (element, index) => {
-                return {
-                  step: (
-                    <span>
-                      <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
-                      {index} {' > '}
-                      <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
-                      {index + 1}
-                    </span>
-                  ),
-                  try: (
-                    <span>
-                      <span className='font-bold'>
-                        {element[0] + element[1]}회
+          <div ref={tableRef}>
+            <Table
+              columns={columns}
+              data={getStarforceResultInfo(starforceInfoArray).map(
+                (element, index) => {
+                  return {
+                    step: (
+                      <span>
+                        <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
+                        {index} {' > '}
+                        <StarIcon fontSize='small' sx={{ color: '#FFE380' }} />
+                        {index + 1}
                       </span>
+                    ),
+                    try: (
+                      <span>
+                        <span className='font-bold'>
+                          {element[0] + element[1]}회
+                        </span>
 
-                      <br />
-                      <span className='font-regular'>
-                        {'('}
-                        {element[0]}
-                        {'/'}
-                        {element[1]}
-                        {')'}
-                      </span>
-                    </span>
-                  ),
-                  success: (
-                    <span className='font-bold'>
-                      {`${element[2]}회 / ${element[5]}회`}
-                      <br />
-                      {element[2] !== 0 && element[5] !== 0 && (
+                        <br />
                         <span className='font-regular'>
-                          {'('}기댓값보다{' '}
-                          {element[2] > element[5] ? (
-                            <span className='text-y4'>
-                              {`${((element[2] / element[5]) * 100).toFixed(
-                                0
-                              )}%`}{' '}
-                              높습니다.
-                            </span>
-                          ) : (
-                            <span className='text-r3'>
-                              {`${
-                                100 -
-                                ((element[2] / element[5]) * 100).toFixed(0)
-                              }%`}{' '}
-                              낮습니다.
-                            </span>
-                          )}
+                          {'('}
+                          {element[0]}
+                          {'/'}
+                          {element[1]}
                           {')'}
                         </span>
-                      )}
-                    </span>
-                  ),
-                  failure: `${element[3]}회`,
-                  destroy: `${element[4]}회`,
-                };
-              }
-            )}
-          />
+                      </span>
+                    ),
+                    success: (
+                      <span className='font-bold'>
+                        {`${element[2]}회 / ${element[5]}회`}
+                        <br />
+                        {element[2] !== 0 && element[5] !== 0 && (
+                          <span className='font-regular'>
+                            {'('}기댓값보다{' '}
+                            {element[2] > element[5] ? (
+                              <span className='text-y4'>
+                                {`${((element[2] / element[5]) * 100).toFixed(
+                                  0
+                                )}%`}{' '}
+                                높습니다.
+                              </span>
+                            ) : (
+                              <span className='text-r3'>
+                                {`${
+                                  100 -
+                                  ((element[2] / element[5]) * 100).toFixed(0)
+                                }%`}{' '}
+                                낮습니다.
+                              </span>
+                            )}
+                            {')'}
+                          </span>
+                        )}
+                      </span>
+                    ),
+                    failure: `${element[3]}회`,
+                    destroy: `${element[4]}회`,
+                  };
+                }
+              )}
+            />
+          </div>
         </div>
       )}
     </div>

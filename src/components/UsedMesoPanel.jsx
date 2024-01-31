@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import { useStarforceInfoArray } from '../context/starforceInfoContext';
 import { calculateCostForEachItemsFromArray } from '../util/starforceUtility';
 import { useTable, useFilters, useSortBy } from 'react-table';
@@ -8,6 +8,8 @@ import { Skeleton } from '@mui/material';
 import { useUserInfo } from '../context/userInfoContext';
 import { useContentError } from '../context/contentErrorContext';
 import MasterToolTip from './ui/MasterToolTip';
+import { useCapture } from '../service/hooks/useCapture';
+import { MasterPrimaryButton } from './ui/MasterPrimaryButton';
 
 const formatNumberToKorean = (num) => {
   const units = ['', '만', '억', '조'];
@@ -203,6 +205,8 @@ export default function UsedMesoPanel() {
   const [userInfo] = useUserInfo();
   const [isLoading] = useLoading();
   const [errorText] = useContentError();
+  const tableRef = useRef(null);
+  const capture = useCapture(tableRef);
   const columns = useMemo(
     () => [
       {
@@ -232,7 +236,7 @@ export default function UsedMesoPanel() {
       {errorText === '' && isLoading && <TableSkeleton />}
       {errorText === '' && !isLoading && itemsAndCost && (
         <div>
-          <div className='mb-10 mt-10 text-[24px] flex flex-col'>
+          <div className='mb-5 mt-10 text-[24px] flex flex-col'>
             <span className='mr-2 flex gap-2 items-center'>
               <MasterToolTip
                 text='130레벨 이상의 아이템만 지원합니다.
@@ -258,18 +262,26 @@ export default function UsedMesoPanel() {
               <span className='font-regular text-white'>메소 입니다.</span>
             </div>
           </div>
-
-          <Table
-            columns={columns}
-            data={itemsAndCost.map((element) => {
-              let convertedKey = element[0].split('|');
-              return {
-                item: convertedKey[0],
-                character: convertedKey[1],
-                meso: element[1],
-              };
-            })}
-          />
+          <div className='flex justify-end mb-5'>
+            <MasterPrimaryButton
+              text='이미지 복사'
+              color='r2'
+              onClick={() => capture(tableRef.current)}
+            />
+          </div>
+          <div ref={tableRef}>
+            <Table
+              columns={columns}
+              data={itemsAndCost.map((element) => {
+                let convertedKey = element[0].split('|');
+                return {
+                  item: convertedKey[0],
+                  character: convertedKey[1],
+                  meso: element[1],
+                };
+              })}
+            />
+          </div>
         </div>
       )}
     </div>
