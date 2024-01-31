@@ -3639,6 +3639,11 @@
   dependencies:
     "source-map" "~0.6.0"
 
+"clipboard-polyfill@^4.0.2":
+  "integrity" "sha512-AkdRB9bWwdrfb4U9vLxC1zrzp1dzV5+AZinGv8gFtrH5hWTnGUXWHIyo+alenqr+hfNFY5p7HJ+khxs2YSpxww=="
+  "resolved" "https://registry.npmjs.org/clipboard-polyfill/-/clipboard-polyfill-4.0.2.tgz"
+  "version" "4.0.2"
+
 "cliui@^7.0.2":
   "integrity" "sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ=="
   "resolved" "https://registry.npmjs.org/cliui/-/cliui-7.0.4.tgz"
@@ -5635,6 +5640,11 @@
     "param-case" "^3.0.4"
     "relateurl" "^0.2.7"
     "terser" "^5.10.0"
+
+"html-to-image@^1.11.11":
+  "integrity" "sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA=="
+  "resolved" "https://registry.npmjs.org/html-to-image/-/html-to-image-1.11.11.tgz"
+  "version" "1.11.11"
 
 "html-webpack-plugin@^5.5.0":
   "integrity" "sha512-iwaY4wzbe48AfKLZ/Cc8k0L+FKG6oSNRaZ8x5A/T/IVDGyXcbHncM9TdDa93wn0FsSm82FhTKW7f3vS61thXAw=="
