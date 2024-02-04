@@ -50,7 +50,7 @@ export default function MyCalendar({
         selected={selected}
         onChange={onChange}
         placeholderText={placeholderText}
-        className='font-regular bg-n1 text-white text-center border-white border-2 focus:outline-n1'
+        className='font-regular bg-n1 text-white text-center sm:w-full border-white border-2 focus:outline-n1'
         shouldCloseOnSelect
         icon={<TodayIcon sx={{ color: '#ffffff' }} />}
         showIcon

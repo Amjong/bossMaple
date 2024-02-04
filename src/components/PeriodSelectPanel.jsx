@@ -68,27 +68,31 @@ export default function PeriodSelectPanel() {
         </div>
         {isPeriod && (
           <div className='flex gap-5'>
-            <MyCalendar
-              selected={startDate}
-              onChange={(date) => {
-                setStartDate(date);
-                setUserInfo((prev) => ({
-                  ...prev,
-                  startDate: date.toISOString().slice(0, 10),
-                }));
-              }}
-              minDate={new Date('2023-12-27')}
-              placeholderText='시작일'
-            />
-            <MyCalendar
-              selected={endDate}
-              onChange={onChangeEnd}
-              minDate={new Date('2023-12-27')}
-              maxDate={new Date(startDate).setFullYear(
-                startDate.getFullYear() + 1
-              )}
-              placeholderText='종료일'
-            />
+            <div className='sm:w-1/2'>
+              <MyCalendar
+                selected={startDate}
+                onChange={(date) => {
+                  setStartDate(date);
+                  setUserInfo((prev) => ({
+                    ...prev,
+                    startDate: date.toISOString().slice(0, 10),
+                  }));
+                }}
+                minDate={new Date('2023-12-27')}
+                placeholderText='시작일'
+              />
+            </div>
+            <div className='sm:w-1/2'>
+              <MyCalendar
+                selected={endDate}
+                onChange={onChangeEnd}
+                minDate={new Date('2023-12-27')}
+                maxDate={new Date(startDate).setFullYear(
+                  startDate.getFullYear() + 1
+                )}
+                placeholderText='종료일'
+              />
+            </div>
           </div>
         )}
       </div>
