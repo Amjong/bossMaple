@@ -4,7 +4,7 @@ import Footer from '../Footer';
 
 export default function Root() {
   return (
-    <div className='leading-loose'>
+    <div className='leading-loose overflow-hidden'>
       <Navbar />
       <Outlet />
       <Footer />

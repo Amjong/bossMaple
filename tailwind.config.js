@@ -1,4 +1,5 @@
 const { searchBgSrc } = require('./src/data/image/encodedImage');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,6 +9,11 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      ...defaultTheme.screens,
+      sm: { max: '480px' },
+      // => @media (max-width: 480px) { ... }
+    },
     extend: {
       fontSize: {
         '3xl': '48px',

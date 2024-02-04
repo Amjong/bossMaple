@@ -62,7 +62,7 @@ export default function PeriodSelectPanel() {
   return (
     <div>
       <StarTextArea text='조회기간' />
-      <div className='flex flex-col translate-x-[11px] mt-5 sm:flex-row flex-wrap'>
+      <div className='flex flex-row translate-x-[11px] mt-5 sm:flex-col flex-wrap'>
         <div className='min-x-[182px]'>
           <RadioBtns onSelect={onSelect} />
         </div>
