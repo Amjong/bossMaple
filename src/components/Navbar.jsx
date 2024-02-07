@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
-import { logoSrc } from '../data/image/encodedImage';
 import { useState } from 'react';
 
 export default function Navbar() {
   const [menu, setMenu] = useState(0);
   return (
     <header className='flex sm:flex-col w-full bg-n1 items-center sm:items-start z-10 h-[45px] sm:h-[120px]'>
-      <div className='ml-10 sm:m-4'>
-        <Link to='/'>
-          <img src={logoSrc} alt='logo' className='w-[126px] h-4/5 sm:h-full' />
+      <div className='ml-10 sm:m-4 flex h-full'>
+        <Link to='/' className='sm:h-full z-50'>
+          <img
+            src='https://res.cloudinary.com/dazzvmx3y/image/upload/w_129,h_40/v1707321384/yod18wgalszlirkkjzvn.png'
+            alt='logo'
+          />
         </Link>
       </div>
       <div className='flex w-full items-center justify-end sm:justify-start gap-[36px] pl-[25px] pr-0 py-0 relative translate-x-[-50px] sm:translate-x-[0px]'>
