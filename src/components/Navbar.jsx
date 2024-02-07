@@ -4,9 +4,9 @@ import { useState } from 'react';
 export default function Navbar() {
   const [menu, setMenu] = useState(0);
   return (
-    <header className='flex sm:flex-col w-full bg-n1 items-center sm:items-start z-10 h-[45px] sm:h-[120px]'>
-      <div className='ml-10 sm:m-4 flex h-full'>
-        <Link to='/' className='sm:h-full z-50'>
+    <header className='flex sm:flex-col w-full bg-n1 items-center sm:items-start z-10 h-[45px] sm:h-[120px] sm:pb-3'>
+      <div className='ml-10 sm:m-2 flex h-full mt-2'>
+        <Link to='/' className='sm:h-full z-50 items-center justify-center'>
           <img
             src='https://res.cloudinary.com/dazzvmx3y/image/upload/w_129,h_40/v1707321384/yod18wgalszlirkkjzvn.png'
             alt='logo'
