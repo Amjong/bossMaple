@@ -30,8 +30,8 @@ export default function ApiKeyGuidePanel() {
           2. 애플리케이션 등록 을 클릭 해주세요. <br /> <br />
           <img
             src='https://res.cloudinary.com/dazzvmx3y/image/upload/v1706447718/rf4iebw6cjppfatokcqv.png'
-            width={1000}
-            height={300}
+            width={800}
+            height={240}
             alt='guide1'
           ></img>
         </div>
@@ -45,8 +45,8 @@ export default function ApiKeyGuidePanel() {
           <img
             src='https://res.cloudinary.com/dazzvmx3y/image/upload/v1706447699/e6tpnfy31xvqlav1stij.png'
             alt='guide2'
-            width={1000}
-            height={700}
+            width={800}
+            height={560}
           />
         </div>
         <div>
@@ -57,8 +57,8 @@ export default function ApiKeyGuidePanel() {
           <img
             src='https://res.cloudinary.com/dazzvmx3y/image/upload/v1706447710/gnlczwap9h3jaqfnmfbp.png'
             alt='guide3'
-            width={1000}
-            height={700}
+            width={800}
+            height={560}
           />
         </div>
       </div>
