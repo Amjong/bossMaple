@@ -66,9 +66,9 @@ export default function Home() {
                 </section>
                 <section
                   label='contentArea'
-                  className='overflow-auto bg-n1 min-w-[1440px] flex flex-col'
+                  className='overflow-auto bg-n1 flex flex-col lg:min-h-[700px] w-full'
                 >
-                  <div className='px-[80px] sm:px-[5px] py-[36.96px] h-[1500px] w-full'>
+                  <div className='px-[80px] sm:pl-[5px] py-[36.96px] w-full'>
                     <ContentPanel />
                   </div>
                 </section>

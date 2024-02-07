@@ -32,7 +32,7 @@ export default function ContentPanel() {
     setMenu(value);
   };
   return (
-    <div className='w-full'>
+    <div className='w-full h-full'>
       <TapBtns onChanged={handleChange} tabBtnsArray={contentArray} />
       <div className='mt-10'>
         {errorText !== '' && (
