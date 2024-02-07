@@ -4,6 +4,7 @@ import RadioBtns from './ui/RadioBtns';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useUserInfo } from '../context/userInfoContext';
 import MyCalendar from './MyCalendar';
+import MasterToolTip from './ui/MasterToolTip';
 
 export default function PeriodSelectPanel() {
   const [isPeriod, setIsPeriod] = useState(false);
@@ -61,7 +62,15 @@ export default function PeriodSelectPanel() {
 
   return (
     <div>
-      <StarTextArea text='조회기간' />
+      <div className='flex gap-1'>
+        <StarTextArea text='조회기간' />
+        <div className='mt-1'>
+          <MasterToolTip
+            text='2023-12-27 이후의 데이터만 조회 가능합니다'
+            placement='right-end'
+          />
+        </div>
+      </div>
       <div className='flex flex-row translate-x-[11px] mt-5 sm:flex-col flex-wrap'>
         <div className='min-x-[182px]'>
           <RadioBtns onSelect={onSelect} />
