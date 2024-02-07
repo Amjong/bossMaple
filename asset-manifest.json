@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.6980b09c.css",
-    "main.js": "/static/js/main.e781c4e8.js",
+    "main.css": "/static/css/main.18d3c25c.css",
+    "main.js": "/static/js/main.f052e9be.js",
     "static/js/787.ae61cdb2.chunk.js": "/static/js/787.ae61cdb2.chunk.js",
     "static/media/NEXON Lv1 Gothic OTF Bold.woff": "/static/media/NEXON Lv1 Gothic OTF Bold.fea89342b1b0f7a386b6.woff",
     "static/media/NEXON Lv1 Gothic OTF.woff": "/static/media/NEXON Lv1 Gothic OTF.eb1217e4bc7f9fe24aac.woff",
     "index.html": "/index.html",
-    "main.6980b09c.css.map": "/static/css/main.6980b09c.css.map",
-    "main.e781c4e8.js.map": "/static/js/main.e781c4e8.js.map",
+    "main.18d3c25c.css.map": "/static/css/main.18d3c25c.css.map",
+    "main.f052e9be.js.map": "/static/js/main.f052e9be.js.map",
     "787.ae61cdb2.chunk.js.map": "/static/js/787.ae61cdb2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6980b09c.css",
-    "static/js/main.e781c4e8.js"
+    "static/css/main.18d3c25c.css",
+    "static/js/main.f052e9be.js"
   ]
 }
