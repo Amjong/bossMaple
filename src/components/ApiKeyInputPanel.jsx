@@ -58,7 +58,7 @@ export default function ApiKeyInputPanel() {
 
       if (receivedArray.length === 0) {
         setErrorText(
-          '2023-12-27 부터의 데이터만 조회할 수 있습니다. 설정하신 기간에 데이터가 존재하지 않습니다. 기간을 다시 설정해주세요.'
+          '설정하신 기간에 데이터가 존재하지 않습니다. 기간을 다시 설정해주세요.'
         );
         setIsLoading(false);
         return;
