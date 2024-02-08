@@ -13,7 +13,7 @@ export default function Home() {
         <div className='pt-10 pl-10 pr-10 min-w-[400px] sm:hidden block ml-10'>
           <AvatarPanel />
         </div>
-        <div className='flex flex-col mt-10 w-full sm:flex-col-reverse'>
+        <div className='flex flex-col mt-10 sm:mt-5 w-full sm:flex-col-reverse sm:px-[15px]'>
           <div>
             <ApiKeyInputPanel />
           </div>
@@ -26,7 +26,7 @@ export default function Home() {
         label='contentArea'
         className='overflow-auto bg-n1 flex flex-col lg:min-h-[700px] w-full'
       >
-        <div className='px-[80px] sm:pl-[5px] py-[36.96px] w-full'>
+        <div className='px-[80px] sm:px-[15px] py-[36.96px] w-full'>
           <ContentPanel />
         </div>
       </section>

@@ -21,11 +21,11 @@ export default function Guide() {
     setMenu(value);
   };
   return (
-    <div className='flex flex-col bg-n1'>
-      <div className='ml-10 mt-5'>
+    <div className='flex flex-col bg-n1 px-10'>
+      <div className='mt-5'>
         <TabBtns onChanged={handleChange} tabBtnsArray={tabBtnsArray} />
       </div>
-      <div className='ml-10 mt-5 text-white'>
+      <div className='mt-5 text-white'>
         <span className='font-bold'>
           개발자 메일
           <br />
@@ -41,7 +41,7 @@ export default function Guide() {
         <span></span>
       </div>
 
-      <div className='m-10 bg-n2 rounded-lg'>
+      <div className='mt-10 mb-10 bg-n2 rounded-lg'>
         {tabBtnsArray[menu].component}
       </div>
     </div>

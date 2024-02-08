@@ -32,7 +32,7 @@ export default function ContentPanel() {
     setMenu(value);
   };
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full sm:px-[15px]'>
       <TapBtns onChanged={handleChange} tabBtnsArray={contentArray} />
       <div className='mt-10'>
         {errorText !== '' && (
@@ -51,7 +51,7 @@ export default function ContentPanel() {
             <div className='font-regular'>(약 1 ~ 2분 소요)</div>
           </div>
         ) : (
-          contentArray[menu].component
+          <div>{contentArray[menu].component}</div>
         )}
       </div>
     </div>
