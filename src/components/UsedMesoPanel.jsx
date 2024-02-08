@@ -238,7 +238,7 @@ export default function UsedMesoPanel() {
       {errorText === '' && isLoading && <TableSkeleton />}
       {errorText === '' && !isLoading && itemsAndCost && (
         <div>
-          <div className='mb-5 mt-10 text-[24px] flex flex-col'>
+          <div className='mb-5 mt-10 text-[24px] sm:text-[19px] flex flex-col'>
             <span className='mr-2 flex gap-2 items-center'>
               <MasterToolTip
                 text='130레벨 이상의 아이템만 지원합니다.
