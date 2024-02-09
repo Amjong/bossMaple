@@ -20,9 +20,6 @@
 html {
   background-color: #282c47;
 }
-body {
-  min-height: 100vh;
-}
 
 /* apply the font globally */
 body {
