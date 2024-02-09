@@ -274,7 +274,7 @@ export default function UsedMesoPanel() {
               }}
             />
           </div>
-          <div ref={tableRef}>
+          <div ref={tableRef} className='overflow-auto'>
             <Table
               columns={columns}
               data={itemsAndCost.map((element) => {

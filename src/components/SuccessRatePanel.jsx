@@ -268,7 +268,7 @@ export default function SuccessRatePanel() {
               }}
             />
           </div>
-          <div ref={tableRef}>
+          <div ref={tableRef} className='overflow-auto'>
             <Table
               columns={columns}
               data={getStarforceResultInfo(starforceInfoArray).map(

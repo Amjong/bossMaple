@@ -24,7 +24,7 @@ export default function Home() {
       </section>
       <section
         label='contentArea'
-        className='overflow-auto bg-n1 flex flex-col lg:min-h-[700px] w-full'
+        className='bg-n1 flex flex-col lg:min-h-[700px] w-full'
       >
         <div className='px-[80px] sm:px-[15px] py-[36.96px] w-full'>
           <ContentPanel />

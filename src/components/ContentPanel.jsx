@@ -51,7 +51,7 @@ export default function ContentPanel() {
             <div className='font-regular'>(약 1 ~ 2분 소요)</div>
           </div>
         ) : (
-          <div>{contentArray[menu].component}</div>
+          <div className='overflow-auto'>{contentArray[menu].component}</div>
         )}
       </div>
     </div>
