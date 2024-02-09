@@ -3,7 +3,7 @@ export const MasterPrimaryButton = ({ text, onClick, color }) => {
   /* TODO : buttonColor 를 동적으로 변경 가능하도록 수정 */
   return (
     <button
-      className={`hover:shadow-lg gap-[8px] flex items-center relative px-[18px] py-[14px] rounded-[30px] ${buttonColor} text-white h-[46px] text-center`}
+      className={`hover:shadow-lg gap-[8px] flex items-center relative px-[18px] py-[14px] rounded-[30px] ${buttonColor} text-white h-[46px] text-center whitespace-nowrap`}
       onClick={onClick}
     >
       {text}
