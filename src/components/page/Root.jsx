@@ -32,7 +32,7 @@ export default function Root() {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
   return (
-    <div className='leading-loose overflow-hidden'>
+    <div className='leading-loose overflow-hidden max-w-screen-2xl'>
       <StarforceProvider>
         <UserInfoProvider>
           <LoadingProvider>

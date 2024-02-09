@@ -17,10 +17,16 @@
   font-style: normal;
 }
 
+html {
+  background-color: #282c47;
+}
+body {
+  min-height: 100vh;
+}
+
 /* apply the font globally */
 body {
   font-family: 'NexonGothicBold', 'NexonGothicRegular'; /* use the font-family you specified in @font-face */
-
   .react-datepicker {
     font-family: 'NexonGothicRegular';
     border: 1px solid white;
