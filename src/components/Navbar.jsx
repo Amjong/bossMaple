@@ -13,30 +13,26 @@ export default function Navbar() {
           />
         </Link>
       </div>
-      <div className='flex w-full items-center justify-end sm:justify-start gap-[36px] px-10 relative translate-x-[-50px] sm:translate-x-[0px] pb-[15px]'>
+      <div className='flex w-full justify-end sm:justify-start gap-[36px] px-10 relative translate-x-[-50px] sm:translate-x-[0px] py-[15px]'>
         <div
           className={`font-regular ${
-            menu === 0 ? 'text-y4 font-extrabold ' : 'text-white font-medium '
+            menu === 0
+              ? 'text-y4 underline-offset-4 font-extrabold underline'
+              : 'text-white font-medium'
           } relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap`}
         >
-          <Link
-            to='/'
-            className='underline underline-offset-4 text-xl'
-            onClick={() => setMenu(0)}
-          >
+          <Link to='/' className='text-xl' onClick={() => setMenu(0)}>
             스타포스
           </Link>
         </div>
         <div
           className={`font-regular ${
-            menu === 1 ? 'text-y4 font-extrabold ' : 'text-white font-medium '
-          }relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap`}
+            menu === 1
+              ? 'text-y4 underline-offset-4 font-extrabold underline'
+              : 'text-white font-medium'
+          } relative w-fit mt-[-1.00px] text-center tracking-[0] leading-[normal] whitespace-nowrap`}
         >
-          <Link
-            to='/guide'
-            className='underline underline-offset-4 text-xl'
-            onClick={() => setMenu(1)}
-          >
+          <Link to='/guide' className='text-xl' onClick={() => setMenu(1)}>
             서비스가이드
           </Link>
         </div>
