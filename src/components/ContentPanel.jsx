@@ -40,17 +40,24 @@ export default function ContentPanel() {
             {errorText}
           </div>
         )}
-        {menu === 2 && contentArray[menu].component}
-        {menu !== 2 && !isLoading && starforceInfoArray.length === 0 ? (
-          <div className='text-xl font-bold text-center sm:text-start sm:mx-5 sm:text-[19px] text-white mt-20'>
-            API KEY 값을 입력 해주세요. <br className='hidden sm:inline' />
-            <Link to='/guide' className='text-r2 underline underline-offset-4'>
-              API KEY 값 입력 가이드
-            </Link>{' '}
-            보러가기
-            <div className='font-regular'>(약 1 ~ 2분 소요)</div>
-          </div>
-        ) : (
+        {errorText === '' && menu === 2 && contentArray[menu].component}
+        {errorText === '' &&
+          menu !== 2 &&
+          !isLoading &&
+          starforceInfoArray.length === 0 && (
+            <div className='text-xl font-bold text-center sm:text-start sm:mx-5 sm:text-[19px] text-white mt-20'>
+              API KEY 값을 입력 해주세요. <br className='hidden sm:inline' />
+              <Link
+                to='/guide'
+                className='text-r2 underline underline-offset-4'
+              >
+                API KEY 값 입력 가이드
+              </Link>{' '}
+              보러가기
+              <div className='font-regular'>(약 1 ~ 2분 소요)</div>
+            </div>
+          )}
+        {menu !== 2 && starforceInfoArray.length !== 0 && (
           <div className='overflow-auto'>{contentArray[menu].component}</div>
         )}
       </div>
