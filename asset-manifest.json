@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.807f643e.css",
-    "main.js": "/static/js/main.ade58fe1.js",
+    "main.css": "/static/css/main.5e4496d9.css",
+    "main.js": "/static/js/main.2ab82566.js",
     "static/js/787.ae61cdb2.chunk.js": "/static/js/787.ae61cdb2.chunk.js",
     "static/media/NEXON Lv1 Gothic OTF Bold.woff": "/static/media/NEXON Lv1 Gothic OTF Bold.fea89342b1b0f7a386b6.woff",
     "static/media/NEXON Lv1 Gothic OTF.woff": "/static/media/NEXON Lv1 Gothic OTF.eb1217e4bc7f9fe24aac.woff",
     "index.html": "/index.html",
-    "main.807f643e.css.map": "/static/css/main.807f643e.css.map",
-    "main.ade58fe1.js.map": "/static/js/main.ade58fe1.js.map",
+    "main.5e4496d9.css.map": "/static/css/main.5e4496d9.css.map",
+    "main.2ab82566.js.map": "/static/js/main.2ab82566.js.map",
     "787.ae61cdb2.chunk.js.map": "/static/js/787.ae61cdb2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.807f643e.css",
-    "static/js/main.ade58fe1.js"
+    "static/css/main.5e4496d9.css",
+    "static/js/main.2ab82566.js"
   ]
 }
