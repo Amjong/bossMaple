@@ -102,7 +102,7 @@ export default function ApiKeyInputPanel() {
           value={text}
           onChange={handleChange}
           type='password'
-          className='xl:w-3/5 w-4/5 min-w-[400px] h-[46px] max-w-[1200px] bg-white rounded-[30px] focus:outline-n1 text-center'
+          className='xl:w-3/5 w-4/5 min-w-[300px] h-[46px] max-w-[1200px] bg-white rounded-[30px] focus:outline-n1 text-center'
         />
         <div className='flex flex-row gap-2 items-center'>
           <MasterPrimaryButton
