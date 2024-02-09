@@ -264,7 +264,7 @@ export default function UsedMesoPanel() {
               <span className='font-regular text-white'>메소 입니다.</span>
             </div>
           </div>
-          <div className='flex justify-end mb-5'>
+          <div className='flex justify-end sm:justify-start mb-5'>
             <MasterPrimaryButton
               text='이미지 복사'
               color='r2'

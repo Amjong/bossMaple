@@ -249,7 +249,7 @@ export default function SuccessRatePanel() {
       {errorText === '' && isLoading && <TableSkeleton />}
       {errorText === '' && !isLoading && starforceInfoArray.length !== 0 && (
         <div>
-          <div className='mb-5 mt-20 flex justify-between'>
+          <div className='mb-5 mt-20 flex justify-between sm:justify-start'>
             <span className='mr-2 flex gap-2 items-center'>
               <MasterToolTip
                 text='130레벨 이상의 아이템만 지원합니다.
