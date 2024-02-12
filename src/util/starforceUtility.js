@@ -169,11 +169,51 @@ const calculateCostForEachItemsFromArray = (starforceInfoArray) => {
   return itemsAndCost;
 };
 
+const isFiveTenFifteenSuccessEvent = (element) => {
+  if (
+    element.starforce_event_list === undefined ||
+    element.starforce_event_list === null
+  ) {
+    return false;
+  }
+
+  if (
+    !(
+      element.before_starforce_count === 5 ||
+      element.before_starforce_count === 10 ||
+      element.before_starforce_count === 15
+    )
+  ) {
+    return false;
+  }
+
+  let isFiveTenFifteenSuccessEvent = false;
+
+  element.starforce_event_list.forEach((event) => {
+    if (
+      event.success_rate === '100,100,100' &&
+      event.starforce_event_range === '5,10,15'
+    ) {
+      isFiveTenFifteenSuccessEvent = true;
+      console.log('is 15 16 100%');
+      return;
+    }
+  });
+
+  return isFiveTenFifteenSuccessEvent;
+};
+
 const getStarforceResultInfo = (starforceInfoArray) => {
   let starforceResultInfo = Array.from({ length: 25 }, () => Array(6).fill(0));
 
   starforceInfoArray.forEach((element) => {
     // Calculate starcatch result (trial count)
+
+    if (isFiveTenFifteenSuccessEvent(element)) {
+      // Do not checking 100% success case
+      return;
+    }
+
     if (element.starcatch_result === '성공') {
       starforceResultInfo[element.before_starforce_count][0]++;
     } else {
