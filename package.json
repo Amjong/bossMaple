@@ -32,7 +32,7 @@
     "predeploy": "npm run build",
     "deploy": "echo 'danpungstar.com' > ./build/CNAME && gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "GENERATE_SOURCEMAP=false react-scripts build"
   },
   "eslintConfig": {
     "extends": [
